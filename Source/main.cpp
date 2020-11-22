@@ -89,6 +89,7 @@ int main(void)
     
     animate();
     
+    glClearColor(0.52,0.8,0.98,1.0); //background color
     glClear(GL_COLOR_BUFFER_BIT);
     
 //    ship.draw(proj);

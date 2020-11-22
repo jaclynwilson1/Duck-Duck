@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(Duck! Duck! VERSION 1.0)
+project(Duck!Duck!)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
@@ -18,3 +18,6 @@ link_libraries(glad)
 
 include_directories(${CMAKE_SOURCE_DIR}/source
                     ${CMAKE_SOURCE_DIR}/source/common)          
+
+add_executable(DuckDuck
+        source/main.cpp)

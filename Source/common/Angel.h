@@ -13,7 +13,7 @@
 // 
 // --- Include system headers ---
 //
-#include "common.h"
+
 #include <cmath>
 #include <iostream>
 #include <cstdio>

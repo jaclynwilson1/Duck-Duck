@@ -10,4 +10,8 @@ PLANNED:
 * Map
 * Food
 * Shaders
+* Point system
+* Enemies
+  * Guns
+* Health
 

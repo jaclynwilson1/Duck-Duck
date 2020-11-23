@@ -1,6 +1,8 @@
 //Duck! Duck!
 //common.h
 
+
+
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
@@ -14,3 +16,7 @@
 #include <stdlib.h>
 
 using namespace Angel;
+
+#include "Duck.h"
+#include "shader.h"
+

@@ -6,6 +6,9 @@
 
 using namespace Angel;
 
+Duck duck;
+
+
 static void error_callback(int error, const char* description)
 {
   fprintf(stderr, "Error: %s\n", description);
@@ -33,15 +36,18 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 
 void init(){
-
+  glClearColor(0.52,0.8,0.98,1.0); //background color
+  glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
+  glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
+  //duck.gl_init(); //FIXME causes crashes
 }
 
 //Refreshes 30 times a second
 void animate(){
   if(glfwGetTime() > 0.033){
     glfwSetTime(0.0);
-//    ship.update_state();
-//    ship.gl_init();
+    //duck.update_state();
+    
 
   }
 }
@@ -85,14 +91,14 @@ int main(void)
     
 //    //Pick a coordinate system that makes the most sense to you
 //    //(left, right, top, bottom)
-//    mat4 proj = Ortho2D(-1.0, 1.0, 1.0, -1.0);
+    mat4 proj = Ortho2D(-1.0, 1.0, 1.0, -1.0);
     
     animate();
     
-    glClearColor(0.52,0.8,0.98,1.0); //background color
+    
     glClear(GL_COLOR_BUFFER_BIT);
     
-//    ship.draw(proj);
+    duck.draw(proj);
     
     glfwSwapBuffers(window);
     glfwPollEvents();

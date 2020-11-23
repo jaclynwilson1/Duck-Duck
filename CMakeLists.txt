@@ -7,17 +7,34 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 #Compile and Link GLFW
 add_subdirectory(glfw-3.3.2)
-link_libraries(glfw)
+
 include_directories(${glfw_INCLUDE_DIRS})
 include_directories("${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps")
-
+link_libraries(glfw)
 add_library(glad "${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps/glad/gl.h"
                 "${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps/glad_gl.c")
 
 link_libraries(glad)
 
+SET(MY_SHADER_PATH ${CMAKE_SOURCE_DIR}/shaders/)
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/shaders/shader.cpp.in ${CMAKE_SOURCE_DIR}/shaders/shader.cpp)	
+
+
+include_directories(${CMAKE_SOURCE_DIR}/source
+					${CMAKE_SOURCE_DIR}/source/common
+					${CMAKE_SOURCE_DIR}/shaders)
+
 include_directories(${CMAKE_SOURCE_DIR}/source
                     ${CMAKE_SOURCE_DIR}/source/common)          
 
-add_executable(DuckDuck
-        source/main.cpp)
+add_executable(DuckDuck WIN32
+        source/main.cpp
+        source/Duck.cpp
+        source/common/Angel.h
+        source/common/common.h
+        source/common/Duck.h
+        source/common/mat.h
+        source/common/vec.h
+        shaders/shader.cpp
+        shaders/fshader_Duck.glsl
+        shaders/vshader_Duck.glsl "source/Duck.cpp" "source/common/Duck.h")

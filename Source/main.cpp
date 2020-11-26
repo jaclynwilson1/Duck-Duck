@@ -7,7 +7,7 @@
 using namespace Angel;
 
 Duck duck;
-Duck duck2;
+
 
 
 static void error_callback(int error, const char* description)
@@ -49,7 +49,6 @@ void init(){
   glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
   glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
   duck.gl_init(); //FIXME causes crashes
-  duck2.gl_init();
 }
 
 //Refreshes ~60 times a second
@@ -109,8 +108,6 @@ int main(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     duck.draw(proj);
-    duck2.draw(proj);
-
     
     glfwSwapBuffers(window);
     glfwPollEvents();

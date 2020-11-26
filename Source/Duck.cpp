@@ -21,7 +21,9 @@ void Duck::update_state(){
     glBindVertexArray(GLvars.vao);
     //Set GL state to use this buffer
     glBindBuffer(GL_ARRAY_BUFFER, GLvars.buffer);
-    vec2 temp_duck_vert[num_duck_vert];
+
+    int num_duck_vert = sizeof(duck_vert)/sizeof(duck_vert[0]);
+    vec2 temp_duck_vert[4];
 
     for (int i = 0; i<num_duck_vert; i++){
         temp_duck_vert[i] = vec2(duck_vert[i].x + state.position.x,duck_vert[i].y + state.position.y);

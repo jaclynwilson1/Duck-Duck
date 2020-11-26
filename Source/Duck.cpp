@@ -3,13 +3,15 @@
 
 Duck::Duck(){
     //draw the duck here
-    duck_vert[0] = vec2(0,0.1);
-    duck_vert[1] = vec2(0.1,0.1);
-    duck_vert[2] = vec2(-0.1,0);
+    duck_vert[0] = vec2(0,0);
+    duck_vert[1] = vec2(0,0.1);
+    duck_vert[2] = vec2(0.1,0.1);
+    duck_vert[3] = vec2(0.1,0);
 
-    duck_color[0] = vec3(1,0,0);
-    duck_color[1] = vec3(1,0,0);
-    duck_color[2] = vec3(1,0,0);
+    duck_color[0] = vec3(1,1,0);
+    duck_color[1] = vec3(1,1,0);
+    duck_color[2] = vec3(1,1,0);
+    duck_color[3] = vec3(1,1,0);
 
 
 };
@@ -19,21 +21,44 @@ void Duck::update_state(){
     glBindVertexArray(GLvars.vao);
     //Set GL state to use this buffer
     glBindBuffer(GL_ARRAY_BUFFER, GLvars.buffer);
+    vec2 temp_duck_vert[num_duck_vert];
 
-    //Check duck's current position and update what's in the glBuffer
-    //Gravity applied here
+    for (int i = 0; i<num_duck_vert; i++){
+        temp_duck_vert[i] = vec2(duck_vert[i].x + state.position.x,duck_vert[i].y + state.position.y);
+        
+        if(state.running){
+            state.position.x += state.direction * state.run_speed;
+        }
+
+        //Grounded is used to detect if duck is on the ground
+        //If not grounded, duck can't jump
+        //Need Map to interact with duck and grounded
+        if (state.jump){
+            state.position.y += 0.01;
+            if(state.position.y >= state.max_jump_height){state.jump = false;}
+        }else {
+            state.position.y -= state.gravity;
+            if (state.position.y <=0) {state.position.y = 0;state.grounded=true;}       
+        }
+    }
+    //Send new vertices to buffer
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(temp_duck_vert), temp_duck_vert);
+    glBindVertexArray(0);
+
 }
 
-void Duck::jump(){
-    //Move duck up
-    //Called with spacebar
-
-}
+void Duck::jump(){if (state.grounded){state.jump = true;state.grounded = false;}}
+void Duck::land(){state.jump = false;}
 
 void Duck::run(int direction){
     //Move duck horizontally
-    //-1 for left; +1 for right
+    //- for left; + for right
+    state.running = true;
+    state.direction = direction;
 }
+
+void Duck::stop(){state.running = false;}
+int Duck::get_direction(){return state.direction;}
 
 void Duck::gl_init(){
     std::string vshader = shader_path + "vshader_Duck.glsl";
@@ -99,7 +124,7 @@ void Duck::draw(mat4 proj){
     glUniformMatrix4fv(GLvars.M_location, 1, GL_TRUE, proj);
 
     //Draw something
-    glDrawArrays(GL_LINE_LOOP, 0, 3);
+    glDrawArrays(GL_LINE_LOOP, 0, num_duck_vert);
 
     glBindVertexArray(0);
     glUseProgram(0);

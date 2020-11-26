@@ -12,7 +12,7 @@ include_directories(${glfw_INCLUDE_DIRS})
 include_directories("${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps")
 link_libraries(glfw)
 add_library(glad "${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps/glad/gl.h"
-                "${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps/glad_gl.c")
+                "${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps/glad_gl.c" )
 
 link_libraries(glad)
 
@@ -27,7 +27,7 @@ include_directories(${CMAKE_SOURCE_DIR}/source
 include_directories(${CMAKE_SOURCE_DIR}/source
                     ${CMAKE_SOURCE_DIR}/source/common)          
 
-add_executable(DuckDuck WIN32
+add_executable(DuckDuck
         source/main.cpp
         source/Duck.cpp
         source/common/Angel.h
@@ -37,4 +37,4 @@ add_executable(DuckDuck WIN32
         source/common/vec.h
         shaders/shader.cpp
         shaders/fshader_Duck.glsl
-        shaders/vshader_Duck.glsl "source/Duck.cpp" "source/common/Duck.h")
+        shaders/vshader_Duck.glsl)

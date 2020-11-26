@@ -7,6 +7,7 @@
 using namespace Angel;
 
 Duck duck;
+Duck duck2;
 
 
 static void error_callback(int error, const char* description)
@@ -18,35 +19,44 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 {
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, GLFW_TRUE);
-  if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    //ship.rotateLeft();
-  if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    //ship.rotateRight();
-  if (key == GLFW_KEY_SPACE){
-    if(action == GLFW_PRESS){
-      //ship.start_thruster();
-    }
+
+  //Release only stop the running if you're running in the same direction
+  //Allows for changing directions more smoothly
+  if (key == GLFW_KEY_LEFT || key == GLFW_KEY_A){
+    if(action == GLFW_PRESS){duck.run(-1);}
     if(action == GLFW_RELEASE){
-      //ship.stop_thruster();
+      if(duck.get_direction() == -1){duck.stop();}
     }
   }
+  if (key == GLFW_KEY_RIGHT || key == GLFW_KEY_D){
+    if(action == GLFW_PRESS){duck.run(1);}
+    if(action == GLFW_RELEASE){
+      if(duck.get_direction() == 1){duck.stop();}
+    }
+  }
+
+  if (key == GLFW_KEY_SPACE || key == GLFW_KEY_W  || key == GLFW_KEY_UP){
+    if(action == GLFW_PRESS){duck.jump();}
+    if(action == GLFW_RELEASE){duck.land();}
+  }
   if (key == GLFW_KEY_Z && action == GLFW_PRESS){
-    //!!!!!!!!Fire bullet
+
   }
 }
 
 void init(){
-  glClearColor(0.52,0.8,0.98,1.0); //background color
+  glClearColor(0.52,0.8,0.98,0); //background color
   glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
   glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
-  //duck.gl_init(); //FIXME causes crashes
+  duck.gl_init(); //FIXME causes crashes
+  duck2.gl_init();
 }
 
-//Refreshes 30 times a second
+//Refreshes ~60 times a second
 void animate(){
-  if(glfwGetTime() > 0.033){
+  if(glfwGetTime() > 0.016){
     glfwSetTime(0.0);
-    //duck.update_state();
+    duck.update_state();
     
 
   }
@@ -78,7 +88,7 @@ int main(void)
   glfwSetKeyCallback(window, key_callback);
   
   glfwMakeContextCurrent(window);
-  gladLoadGL(glfwGetProcAddress);
+  gladLoadGL(glfwGetProcAddress); //CHECKME
   glfwSwapInterval(1);
   
   init();
@@ -91,7 +101,7 @@ int main(void)
     
 //    //Pick a coordinate system that makes the most sense to you
 //    //(left, right, top, bottom)
-    mat4 proj = Ortho2D(-1.0, 1.0, 1.0, -1.0);
+    mat4 proj = Ortho2D(-1.0, 1.0, -1.0, 1.0);
     
     animate();
     
@@ -99,6 +109,8 @@ int main(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     duck.draw(proj);
+    duck2.draw(proj);
+
     
     glfwSwapBuffers(window);
     glfwPollEvents();

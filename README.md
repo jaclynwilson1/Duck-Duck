@@ -2,12 +2,12 @@
 Intro to Computer Graphics Final Project
 
 TO-DO:
-* fix Duck::gl_init()
-* Draw a duck
+* Make the duck look like a duck
+* Create a map, preferably in 3D, basic big cube
+* Collision between map and duck
+  * duck.state.grounded should be true when the duck is standing on the map
 
 PLANNED:
-* Controls
-* Map
 * Food
 * Shaders
 * Point system
@@ -15,3 +15,5 @@ PLANNED:
   * Guns
 * Health
 
+DONE:
+* Movement for the duck

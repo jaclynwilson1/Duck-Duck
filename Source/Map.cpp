@@ -6,7 +6,7 @@ Map::Map(){
     //Need to decide where to handle collision of duck and platform
     map_vert.resize(num_map_vert);
     platforms.push_back(gen_platform(vec4(-1,0,-1,1),1.25,0.5,1));
-    platforms.push_back(gen_platform(vec4(0.25,0.5,1,1),0.5,0.5,1));
+    platforms.push_back(gen_platform(vec4(0.25,-0.5,1,1),0.5,0.5,1));
 
 
     std::vector<vec4> temp_platform;

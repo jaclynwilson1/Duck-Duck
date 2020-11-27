@@ -43,15 +43,20 @@ bool Duck::wall_check(std::vector<std::vector <vec4>> platforms){
     std::vector <vec4> wall_lines;
     for (int i = 0; i < platforms.size(); i++){
         //These points should be the top of each platforms
-        wall_lines.push_back(platforms[i][23]);
-        wall_lines.push_back(platforms[i][25]);
-        wall_lines.push_back(platforms[i][29]);
-        wall_lines.push_back(platforms[i][31]);
+        wall_lines.push_back(platforms[i][0]);
+        wall_lines.push_back(platforms[i][6]);
+        wall_lines.push_back(platforms[i][1]);
+        wall_lines.push_back(platforms[i][7]);
     }
     for(int i = 0; i < wall_lines.size(); i+=2){
-        if(state.position.y >= wall_lines[i].y && state.position.x <= wall_lines[i+1].y){
-            if(state.position.x >= wall_lines[i].x+0.001 && state.position.x<=wall_lines[i].x-0.001){ //Might need to change this to a small range above and below if there are bugs
-                state.ground_x = wall_lines[i].x;
+        if(state.position.y < wall_lines[i].y && state.position.x >= wall_lines[i+1].y){
+            if(state.position.x >= wall_lines[i].x && state.position.x<=wall_lines[i+2].x){ //Might need to change this to a small range above and below if there are bugs
+                if(state.position.x <= (wall_lines[i].x+wall_lines[i+2].x)/2){
+                    state.ground_x = wall_lines[i].x;
+                }else {
+                    state.ground_x = wall_lines[i+2].x;
+                }
+                
                 return true;
             }
         }

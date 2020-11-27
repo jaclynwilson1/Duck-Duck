@@ -5,8 +5,10 @@ Map::Map(){
     //Generate the map by using gen_platforms to place platforms
     //Need to decide where to handle collision of duck and platform
     map_vert.resize(num_map_vert);
-    platforms.push_back(gen_platform(vec4(-1,0,-1,1),1.25,0.5,1));
-    platforms.push_back(gen_platform(vec4(0.25,-0.5,1,1),0.5,0.5,1));
+    platforms.push_back(gen_platform(vec4(-1,0,1,1),2,0.5,1));
+    platforms.push_back(gen_platform(vec4(-1,0.5,1,1),0.5,0.5,1));
+    platforms.push_back(gen_platform(vec4(0.5,0.5,1,1),0.5,0.5,1));
+
 
 
     std::vector<vec4> temp_platform;
@@ -57,7 +59,7 @@ void Map::gl_init(){
 
     GLvars.vpos_location = glGetAttribLocation(GLvars.program, "vPos");
     GLvars.vcolor_location = glGetAttribLocation(GLvars.program, "vColor");
-    GLvars.M_location = glGetUniformLocation(GLvars.program, "M");
+    //GLvars.M_location = glGetUniformLocation(GLvars.program, "M");
 
 
 

@@ -16,7 +16,7 @@ class Map{
     GLuint program;       //shader program
     GLuint buffer;        //Vertex buffer objects
     GLuint vertex_shader, fragment_shader;  //Shaders
-    GLint vpos_location, vcolor_location;   //reference to pos and color in shaders
+    GLint vpos_location, vcolor_location, vnorm_location;   //reference to pos, color, and normal in shaders
     GLint M_location;     //Reference to matrix in shader
     } GLvars;
 

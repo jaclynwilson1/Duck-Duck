@@ -5,7 +5,7 @@ TO-DO:
 * Make the duck look like a duck
 * Create a map, preferably in 3D, basic big cube
 * Collision between map and duck
-  * duck.state.grounded should be true when the duck is standing on the map
+  * duck shouldn't move when running into a wall
 
 PLANNED:
 * Food

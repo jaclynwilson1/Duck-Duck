@@ -13,6 +13,8 @@ PLANNED:
 * Point system
 * Enemies
   * Guns
+  * Enemies will shoot at the duck every x seconds and jump backwards if the duck gets too close
+* Duck bite
 * Health
 
 DONE:

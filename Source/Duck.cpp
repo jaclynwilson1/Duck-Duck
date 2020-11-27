@@ -74,7 +74,7 @@ bool Duck::ground_check(std::vector<std::vector <vec4>> platforms){
     }
     for(int i = 0; i < ground_lines.size(); i+2){
         if(state.position.x >= ground_lines[i].x && state.position.x <= ground_lines[i+1].x){
-            if(state.position.y == ground_lines[i].y){ //Might need to change this to a small range above and below if there are bugs
+            if(state.position.y >= ground_lines[i].y-(state.gravity*2)){ //Might need to change this to a small range above and below if there are bugs
                 return true;
             }
         }

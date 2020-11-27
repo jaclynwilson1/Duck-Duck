@@ -7,6 +7,7 @@
 using namespace Angel;
 
 Duck duck;
+Map map;
 
 
 
@@ -48,14 +49,15 @@ void init(){
   glClearColor(0.52,0.8,0.98,0); //background color
   glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
   glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
-  duck.gl_init(); //FIXME causes crashes
+  //duck.gl_init(); //FIXME causes crashes
+  map.gl_init();
 }
 
 //Refreshes ~60 times a second
 void animate(){
   if(glfwGetTime() > 0.016){
     glfwSetTime(0.0);
-    duck.update_state();
+    //duck.update_state();
     
 
   }
@@ -107,7 +109,8 @@ int main(void)
     
     glClear(GL_COLOR_BUFFER_BIT);
     
-    duck.draw(proj);
+    //duck.draw(proj);
+    map.draw(proj);
     
     glfwSwapBuffers(window);
     glfwPollEvents();

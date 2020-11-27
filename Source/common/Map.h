@@ -3,11 +3,11 @@
 
 #include "common.h"
 
-class map{
-    std::vector <vec4> map_vert[];
-    std::vector<vector <vec4>> platforms;
-    std::vector <vec4> map_color[];
-    std::vector <vec3> map_normals[];
+class Map{
+    std::vector <vec4> map_vert;
+    std::vector<std::vector <vec4>> platforms;
+    std::vector <vec4> map_color;
+    std::vector <vec3> map_normals;
     int num_map_vert = map_vert.size();
 
     struct {
@@ -25,8 +25,8 @@ class map{
     void draw(mat4 proj);
 
     std::vector <vec4> gen_platform(vec4 location, float width,float height, float depth);
-    std::vector<vector <vec4>> get_platforms;
-}
+    std::vector<std::vector <vec4>> get_platforms();
+};
 
 
 #endif

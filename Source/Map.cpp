@@ -4,8 +4,10 @@
 Map::Map(){
     //Generate the map by using gen_platforms to place platforms
     //Need to decide where to handle collision of duck and platform
-    
-
+    map_vert = gen_platform(vec4(-0.5,0,-0.5,1),1,0.5,1);
+    for(int i = 0; i < num_map_vert;i++){
+        map_color.push_back(vec4(0,1,0,1));
+    }
 
 
 
@@ -13,8 +15,8 @@ Map::Map(){
 
 void Map::gl_init(){
     ////ADD SHADERS
-    //std::string vshader = shader_path + "vshader_Map.glsl";
-    //std::string fshader = shader_path + "fshader_Map.glsl";
+    std::string vshader = shader_path + "vshader_Map.glsl";
+    std::string fshader = shader_path + "fshader_Map.glsl";
 
     GLchar* vertex_shader_source = readShaderSource(vshader.c_str());
     GLchar* fragment_shader_source = readShaderSource(fshader.c_str());
@@ -42,22 +44,22 @@ void Map::gl_init(){
     GLvars.vcolor_location = glGetAttribLocation(GLvars.program, "vColor");
     GLvars.M_location = glGetUniformLocation(GLvars.program, "M");
 
+
+
     // Create a vertex array object
     glGenVertexArrays(1, &GLvars.vao);
     //Set GL state to use vertex array object
     glBindVertexArray(GLvars.vao);
-
     //Generate buffer to hold our vertex data
     glGenBuffers(1, &GLvars.buffer);
     //Set GL state to use this buffer
     glBindBuffer(GL_ARRAY_BUFFER, GLvars.buffer);
-
     //Create GPU buffer to hold vertices and color
     glBufferData(GL_ARRAY_BUFFER, sizeof(map_vert) + sizeof(map_color), NULL, GL_STATIC_DRAW);
     //First part of array holds vertices
-    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(map_vert), map_vert);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(map_vert), &map_vert[0]);
     //Second part of array hold colors (offset by sizeof(triangle))
-    glBufferSubData(GL_ARRAY_BUFFER, sizeof(map_vert), sizeof(map_color), map_color);
+    glBufferSubData(GL_ARRAY_BUFFER, sizeof(map_vert), sizeof(map_color), &map_color[0]);
 
     glEnableVertexAttribArray(GLvars.vpos_location);
     glEnableVertexAttribArray(GLvars.vcolor_location);
@@ -66,6 +68,20 @@ void Map::gl_init(){
     glVertexAttribPointer(GLvars.vcolor_location, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(map_vert)));
 
     glBindVertexArray(0);
+}
+
+void Map::draw(mat4 proj){
+    glUseProgram(GLvars.program);
+    glBindVertexArray(GLvars.vao);
+
+    //If you have a modelview matrix, pass it with proj
+    glUniformMatrix4fv(GLvars.M_location, 1, GL_TRUE, proj);
+
+    //Draw something
+    glDrawArrays(GL_TRIANGLES, 0, num_map_vert);
+
+    glBindVertexArray(0);
+    glUseProgram(0);
 }
 
 std::vector <vec4> Map::gen_platform(vec4 location, float width,float height, float depth){
@@ -123,8 +139,10 @@ std::vector <vec4> Map::gen_platform(vec4 location, float width,float height, fl
     vertices.push_back(vec4(x+width,y,z));
     vertices.push_back(vec4(x+width,y,z-depth));
     vertices.push_back(vec4(x+width,y-height,z-depth));
+
+    return vertices;
 }
 
-std::vector<vector <vec4>> Map::get_platforms(){
+std::vector<std::vector <vec4>> Map::get_platforms(){
     return platforms;
 }

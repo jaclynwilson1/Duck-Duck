@@ -12,7 +12,7 @@ class Duck{
     
     struct{
         int health;
-        vec2 position;
+        vec2 position = vec2(0,0);
         float gravity = 0.0040;
         bool jump = false;
         float max_jump_height = 0.5;
@@ -20,6 +20,9 @@ class Duck{
         bool running = false;
         int direction;
         float run_speed = 0.003;
+        float ground_y = 0;
+        float ground_x = 0;
+
         
         
     } state;
@@ -35,7 +38,7 @@ class Duck{
 
     public:
         Duck();
-        void update_state();
+        void update_state(Map map);
         void jump();
         void land();
         void run(int direction);
@@ -44,6 +47,7 @@ class Duck{
         void gl_init();
         void draw(mat4 proj);
         bool ground_check(std::vector<std::vector <vec4>> platforms); //vec4 h1, vec4 h2, vec4 v1, vec4 v2, vec4 v11, vec4 v22
+        bool wall_check(std::vector<std::vector <vec4>> platforms);
 };
 
 #endif

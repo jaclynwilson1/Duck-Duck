@@ -6,6 +6,7 @@
 class Map{
     std::vector <vec4> map_vert;
     std::vector<std::vector <vec4>> platforms;
+    int platform_count = 0;
     std::vector <vec4> map_color;
     std::vector <vec3> map_normals;
     int num_map_vert = map_vert.size();

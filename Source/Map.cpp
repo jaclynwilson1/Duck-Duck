@@ -4,9 +4,24 @@
 Map::Map(){
     //Generate the map by using gen_platforms to place platforms
     //Need to decide where to handle collision of duck and platform
-    map_vert = gen_platform(vec4(-0.5,0,-0.5,1),1,0.5,1);
+    map_vert.resize(num_map_vert);
+    platforms.push_back(gen_platform(vec4(-1,0,-1,1),1.25,0.5,1));
+    platforms.push_back(gen_platform(vec4(0.25,0.5,1,1),0.5,0.5,1));
+
+
+    std::vector<vec4> temp_platform;
+    for(int i = 0; i < platform_count; i++){
+        temp_platform =platforms[i];
+        platforms.push_back(temp_platform);
+    }
+    for (int i = 0; i < platform_count; i++){
+        for(int j=0;j < platforms[i].size();j++){
+            map_vert.push_back(platforms[i][j]);
+        }
+    }
     for(int i = 0; i < num_map_vert;i++){
         map_color.push_back(vec4(0,1,0,1));
+        map_normals.push_back(vec3(0,0,1));
     }
 
 

@@ -17,7 +17,51 @@ Duck::Duck(){
 
 };
 
-void Duck::update_state(){
+bool Duck::ground_check(std::vector<std::vector <vec4>> platforms){
+    //Returns true if duck is standing on a platform
+    std::vector <vec4> ground_lines;
+
+    for (int i = 0; i < platforms.size(); i++){
+        //These points should be the top of each platforms
+        ground_lines.push_back(platforms[i][0]);
+        ground_lines.push_back(platforms[i][1]);
+    }
+    for(int i = 0; i < ground_lines.size(); i+=2){
+        if(state.position.x >= ground_lines[i].x && state.position.x <= ground_lines[i+1].x){
+            if(state.position.y >= ground_lines[i].y-(state.gravity*2) && state.position.y<=ground_lines[i].y){ //Might need to change this to a small range above and below if there are bugs
+                state.ground_y = ground_lines[i].y;
+                return true;
+            }
+        }
+    }
+
+    return false;
+
+}
+
+bool Duck::wall_check(std::vector<std::vector <vec4>> platforms){
+    std::vector <vec4> wall_lines;
+    for (int i = 0; i < platforms.size(); i++){
+        //These points should be the top of each platforms
+        wall_lines.push_back(platforms[i][23]);
+        wall_lines.push_back(platforms[i][25]);
+        wall_lines.push_back(platforms[i][29]);
+        wall_lines.push_back(platforms[i][31]);
+    }
+    for(int i = 0; i < wall_lines.size(); i+=2){
+        if(state.position.y >= wall_lines[i].y && state.position.x <= wall_lines[i+1].y){
+            if(state.position.x >= wall_lines[i].x+0.001 && state.position.x<=wall_lines[i].x-0.001){ //Might need to change this to a small range above and below if there are bugs
+                state.ground_x = wall_lines[i].x;
+                return true;
+            }
+        }
+    }
+    
+
+    return false;
+}
+
+void Duck::update_state(Map map){
     //Set GL state to use vertex array object
     glBindVertexArray(GLvars.vao);
     //Set GL state to use this buffer
@@ -30,18 +74,26 @@ void Duck::update_state(){
         temp_duck_vert[i] = vec2(duck_vert[i].x + state.position.x,duck_vert[i].y + state.position.y);
         
         if(state.running){
+            if(wall_check(map.get_platforms())){//If touching wall, no movement
+                state.position.x = state.ground_x;
+            }
             state.position.x += state.direction * state.run_speed;
         }
 
         //Grounded is used to detect if duck is on the ground
         //If not grounded, duck can't jump
         //Need Map to interact with duck and grounded
+        
         if (state.jump){
             state.position.y += 0.01;
-            if(state.position.y >= state.max_jump_height){state.jump = false;}
+            if(state.position.y >= state.ground_y + state.max_jump_height){state.jump = false;}
         }else {
             state.position.y -= state.gravity;
-            if (state.position.y <=0) {state.position.y = 0;state.grounded=true;}       
+            /*if (state.position.y <=0) {state.position.y = 0;state.grounded=true;}*/
+            if (ground_check(map.get_platforms())){
+                state.position.y = state.ground_y;
+                state.grounded=true;
+            }    
         }
     }
     //Send new vertices to buffer
@@ -63,26 +115,7 @@ void Duck::run(int direction){
 void Duck::stop(){state.running = false;}
 int Duck::get_direction(){return state.direction;}
 
-bool Duck::ground_check(std::vector<std::vector <vec4>> platforms){
-    //Returns true if duck is standing on a platform
-    std::vector <vec4> ground_lines;
 
-    for (int i = 0; i < platforms.size(); i++){
-        //These points should be the top of each platforms
-        ground_lines.push_back(platforms[i][0]);
-        ground_lines.push_back(platforms[i][1]);
-    }
-    for(int i = 0; i < ground_lines.size(); i+2){
-        if(state.position.x >= ground_lines[i].x && state.position.x <= ground_lines[i+1].x){
-            if(state.position.y >= ground_lines[i].y-(state.gravity*2)){ //Might need to change this to a small range above and below if there are bugs
-                return true;
-            }
-        }
-    }
-
-    return false;
-
-}
 
 void Duck::gl_init(){
     std::string vshader = shader_path + "vshader_Duck.glsl";

@@ -1,6 +1,7 @@
 //Duck! Duck!
 #include "common.h"
 
+
 Duck::Duck(){
     //draw the duck here
     duck_vert[0] = vec2(0,0);
@@ -61,6 +62,27 @@ void Duck::run(int direction){
 
 void Duck::stop(){state.running = false;}
 int Duck::get_direction(){return state.direction;}
+
+bool Duck::ground_check(std::vector<std::vector <vec4>> platforms){
+    //Returns true if duck is standing on a platform
+    std::vector <vec4> ground_lines;
+
+    for (int i = 0; i < platforms.size(); i++){
+        //These points should be the top of each platforms
+        ground_lines.push_back(platforms[i][0]);
+        ground_lines.push_back(platforms[i][1]);
+    }
+    for(int i = 0; i < ground_lines.size(); i+2){
+        if(state.position.x >= ground_lines[i].x && state.position.x <= ground_lines[i+1].x){
+            if(state.position.y == ground_lines[i].y){ //Might need to change this to a small range above and below if there are bugs
+                return true;
+            }
+        }
+    }
+
+    return false;
+
+}
 
 void Duck::gl_init(){
     std::string vshader = shader_path + "vshader_Duck.glsl";

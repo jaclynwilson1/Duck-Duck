@@ -14,6 +14,7 @@
 #include <iostream>
 #include <cstdio>
 #include <stdlib.h>
+#include <vector>
 
 using namespace Angel;
 

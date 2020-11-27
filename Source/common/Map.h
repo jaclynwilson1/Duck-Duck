@@ -4,9 +4,11 @@
 #include "common.h"
 
 class map{
-    vec4 map_vert[];
-    vec3 map_normals[];
-    int num_map_vert = sizeof(map_vert)/sizeof(vec4(0,0,0,0));
+    std::vector <vec4> map_vert[];
+    std::vector<vector <vec4>> platforms;
+    std::vector <vec4> map_color[];
+    std::vector <vec3> map_normals[];
+    int num_map_vert = map_vert.size();
 
     struct {
     GLuint vao;           //Vertex array object
@@ -22,6 +24,8 @@ class map{
     void gl_init();
     void draw(mat4 proj);
 
+    std::vector <vec4> gen_platform(vec4 location, float width,float height, float depth);
+    std::vector<vector <vec4>> get_platforms;
 }
 
 

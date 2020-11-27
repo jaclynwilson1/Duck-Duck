@@ -7,6 +7,7 @@ class Duck{
     vec2 duck_vert[4];
     vec3 duck_color[4];
     int num_duck_vert = sizeof(duck_vert)/sizeof(duck_vert[0]);
+    
 
     
     struct{
@@ -42,6 +43,7 @@ class Duck{
         int get_direction();
         void gl_init();
         void draw(mat4 proj);
+        bool ground_check(std::vector<std::vector <vec4>> platforms); //vec4 h1, vec4 h2, vec4 v1, vec4 v2, vec4 v11, vec4 v22
 };
 
 #endif

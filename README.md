@@ -2,6 +2,7 @@
 Intro to Computer Graphics Final Project
 
 TO-DO:
+* Switch to 3D with phong shading
 * Make the duck look like a duck
 * Create a map, preferably in 3D, basic big cube
 * Collision between map and duck

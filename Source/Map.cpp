@@ -1,32 +1,25 @@
 //Duck! Duck!
 #include "common.h"
 
-Map::Map(){
+Map::Map(int i){
     //Generate the map by using gen_platforms to place platforms
     //Need to decide where to handle collision of duck and platform
-
-    platforms.push_back(gen_platform(vec3(-1,0,1),2,0.3,1));
-    platforms.push_back(gen_platform(vec3(-1,0.3,1),0.5,0.3,1));
-    platforms.push_back(gen_platform(vec3(0.5,0.3,1),0.5,0.3,1));
+    //Map 1
+    if(i == 1){
+        platforms.push_back(gen_platform(vec3(-1,0-0.5,1),2,0.5,1));
+    }
+    
+    
+    
+    
     for (int i = 0; i < platform_count; i++){
         for(int j=0;j < platforms[i].size();j++){
             vertices.push_back(platforms[i][j]);
         }
     }
-
-   /*
-   vertices.push_back(vec3(0,0,0));
-   vertices.push_back(vec3(0,1,0));
-   vertices.push_back(vec3(1,1,0));
-    */
-
     for(int i = 0; i < vertices.size();i++){
         colors.push_back(vec3(0.22,0.4,0));
-        //map_normals.push_back(vec3(0,0,1));
     }
-
-
-
 };
 
 void Map::gl_init(){

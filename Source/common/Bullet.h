@@ -9,10 +9,11 @@ class Bullet{
     vec3 direction;
     std::vector <vec3> colors;
     int max_bullet = 3;
-    float radius = 0.015;
+    float radius = 0.01;
 
     struct{
-        vec3 velocity;
+        vec2 velocity;
+        bool dead=false;
     } state;
 
     struct {
@@ -25,7 +26,7 @@ class Bullet{
     } GLvars;
 
     public:
-        Bullet(vec3 position, vec3 direction);
+        Bullet(vec3 position, vec2 velocity);
         void gl_init();
         void draw(mat4 proj);
         void update_state(Map map, std::vector <vec3> duck_vert, std::vector<std::vector<vec3>> hunters_hitboxes);
@@ -34,6 +35,7 @@ class Bullet{
         bool wall_check(std::vector<std::vector <vec3>> platforms);
         bool duck_check(std::vector<vec3> duck_vert);
         bool hunters_check(std::vector<std::vector<vec3>> hunters_hitboxes);
+        bool dead_check(){return state.dead;}
 };
 
 

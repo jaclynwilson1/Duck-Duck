@@ -21,7 +21,7 @@ class Map{
     } GLvars;
 
     public:
-    Map();
+    Map(int i);
     void gl_init();
     void draw(mat4 proj);
 

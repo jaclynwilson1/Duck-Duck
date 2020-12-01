@@ -6,16 +6,28 @@
 using namespace Angel;
 
 Duck duck;
-Map map;
+Map map{1};
 
 std::vector<std::vector<vec3>> hunters_hitboxes;
 Hunter hunter1;
 Hunter hunter2;
 
 
+std::vector<Bullet> bullets;
+double hunter_bullet_timer;
 
-Bullet bullet(vec3(0,0.2,0), vec3(0.001,0,0));
 
+
+void new_bullet(vec2 start_position, vec2 velocity){
+  
+  
+  Bullet new_bullet(vec3(start_position,0), velocity);
+  bullets.push_back(new_bullet);
+  
+  //bullets.push_back(bullet);
+
+
+}
 
 static void error_callback(int error, const char* description)
 {
@@ -47,8 +59,28 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     if(action == GLFW_RELEASE){duck.land();}
   }
   if (key == GLFW_KEY_Z && action == GLFW_PRESS){
-
+    
   }
+}
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+    if(button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) 
+    {
+      double xpos, ypos; //FIXME need to translate to coordinate plane
+      int width, height;
+      vec2 velocity;
+
+      glfwGetCursorPos(window, &xpos, &ypos);
+      glfwGetFramebufferSize(window, &width, &height);
+
+      velocity.x = -1.0 + 2.0 * xpos / width; 
+      velocity.y = 1.0 - 2.0 * ypos / height;  
+
+      velocity.y *= -1;
+      velocity /= 100;
+      new_bullet(duck.get_position(), velocity);
+    }
 }
 
 void init(){
@@ -58,21 +90,38 @@ void init(){
   duck.gl_init(); //FIXME causes crashes
   map.gl_init();
   hunter1.gl_init();
-  bullet.gl_init();
 }
 
 //Refreshes ~60 times a second
 void animate(){
   if(glfwGetTime() > 0.016){
+    hunter_bullet_timer+=glfwGetTime();
     glfwSetTime(0.0);
+    
     duck.update_state(map);
     hunter1.update_state(map);
+    hunter2.update_state(map);
     hunters_hitboxes.clear();
-    hunters_hitboxes.push_back(hunter1.get_hitbox());
-    hunters_hitboxes.push_back(hunter2.get_hitbox());
-    bullet.update_state(map, duck.get_current_vertices(), hunters_hitboxes);
-    
+    hunters_hitboxes.push_back(hunter1.get_current_vertices());
+    hunters_hitboxes.push_back(hunter2.get_current_vertices());
+    //bullet.gl_init();
+    //bullet.update_state(map, duck.get_current_vertices(), hunters_hitboxes);
+    for(int i=0;i<bullets.size();i++){
+      if(!bullets[i].dead_check()){
+        bullets[i].gl_init();
+        bullets[i].update_state(map, duck.get_current_vertices(), hunters_hitboxes);
+      }
+    }
+  }
 
+  if (hunter_bullet_timer >= 5){
+    int width, height;
+
+    vec2 velocity = duck.get_position();
+    velocity/=100;
+
+    new_bullet(hunter1.get_position(),velocity);
+    hunter_bullet_timer = 0;
   }
 }
 
@@ -100,6 +149,7 @@ int main(void)
   }
   
   glfwSetKeyCallback(window, key_callback);
+  glfwSetMouseButtonCallback(window,mouse_button_callback);
   
   glfwMakeContextCurrent(window);
   gladLoadGL(glfwGetProcAddress); //CHECKME
@@ -125,8 +175,12 @@ int main(void)
     duck.draw(proj);
     map.draw(proj);
     hunter1.draw(proj);
-    bullet.draw(proj);
-    
+    hunter2.draw(proj);
+    for(int i=0; i<bullets.size();i++){
+      //bullets[i].gl_init();
+      bullets[i].draw(proj);
+    }
+
     glfwSwapBuffers(window);
     glfwPollEvents();
     

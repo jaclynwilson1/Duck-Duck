@@ -1,15 +1,17 @@
 
 #include "common.h"
 
-Bullet::Bullet(vec3 position, vec3 velocity){
+Bullet::Bullet(vec3 position, vec2 velocity){
+    position.y += 0.03;
     vertices.push_back(position);
+    
     state.velocity = velocity;
     for (int i = 0; i < 362; i++) {
         double parameterization = i * (M_PI / 180);
         vertices.push_back(vec3(radius * cos(parameterization) + position.x, radius * sin(parameterization) + position.y,0));
     }
     for(int i = 0; i<vertices.size();i++){
-        colors.push_back(vec3(0.50,0.50,0.50));
+        colors.push_back(vec3(1,0.75,0));
     }
 
     
@@ -110,18 +112,26 @@ void Bullet::update_state(Map map, std::vector<vec3> duck_vert, std::vector<std:
         vertices[i].y += state.velocity.y;
     }
     if(ground_check(map.get_platforms())){
+        state.dead = true;
         vertices.clear();
     }
     if(wall_check(map.get_platforms())){
+        state.dead = true;
         vertices.clear();
-    }
-    if(duck_check(duck_vert)){
-        vertices.clear();
-    }
-    if(hunters_check(hunters_hitboxes)){
-        vertices.clear();
-    }
 
+    }
+    /*  Commented out for testing bullets. Need to check if start in duck.
+    if(duck_check(duck_vert)){
+        state.dead = true;
+    }
+    */
+   /*
+    if(hunters_check(hunters_hitboxes)){
+        state.dead = true;
+        vertices.clear();
+
+    }
+    */
     //Send new vertices to buffer
     glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size()*sizeof(vertices[0]), &vertices[0]);
     glBindVertexArray(0);
@@ -136,6 +146,10 @@ bool Bullet::ground_check(std::vector<std::vector <vec3>> platforms){
         //These points should be the top of each platforms
         ground_lines.push_back(platforms[i][4]);//[i][0] with the 3D functions
         ground_lines.push_back(platforms[i][3]);//[i][1] with the 3D functions
+    }
+
+    if (vertices[0].x > 1 || vertices[0].x < -1){
+        return true;
     }
     for(int i = 0; i < ground_lines.size(); i+=2){
         if(vertices[0].x+radius >= ground_lines[i].x && vertices[0].x-radius <= ground_lines[i+1].x){
@@ -157,6 +171,10 @@ bool Bullet::wall_check(std::vector<std::vector <vec3>> platforms){
         wall_lines.push_back(platforms[i][0]); //[i][6]
         wall_lines.push_back(platforms[i][3]); //[i][1]
         wall_lines.push_back(platforms[i][2]); //[i][7]
+    }
+
+    if (vertices[0].y > 1 || vertices[0].y < -1){
+        return true;
     }
     for(int i = 0; i < wall_lines.size(); i+=4){
         if(vertices[0].y < wall_lines[i].y && vertices[0].y >= wall_lines[i+1].y){

@@ -8,8 +8,6 @@ Hunter::Hunter(){
     vertices.push_back(vec3(-0.025,0.075,0));
     vertices.push_back(vec3(0.025,0.075,0));
     vertices.push_back(vec3(0.025,0,0));
-    hitbox.push_back(vec3(-0.025,0,0));
-    hitbox.push_back(vec3(0.025,0.075,0));
 
     for(int i = 0; i < vertices.size();i++){
         colors.push_back(vec3(1,0,0));
@@ -102,6 +100,8 @@ void Hunter::update_state(Map map){
             }    
         }
     }
+    current_vertices.resize(temp_vertices.size());
+    current_vertices = temp_vertices;
     //Send new vertices to buffer
     glBufferSubData(GL_ARRAY_BUFFER, 0, temp_vertices.size()*sizeof(temp_vertices[0]), &temp_vertices[0]);
     glBindVertexArray(0);

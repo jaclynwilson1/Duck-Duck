@@ -49,8 +49,8 @@ bool Duck::wall_check(std::vector<std::vector <vec3>> platforms){
         wall_lines.push_back(platforms[i][2]); //[i][7]
     }
     for(int i = 0; i < wall_lines.size(); i+=4){
-        if(state.position.y < wall_lines[i].y && state.position.y >= wall_lines[i+1].y){
-            if(state.position.x >= wall_lines[i].x && state.position.x<=wall_lines[i+2].x){ //Might need to change this to a small range above and below if there are bugs
+        if(state.position.y < wall_lines[i].y && state.position.y > wall_lines[i+1].y){
+            if(state.position.x > wall_lines[i].x && state.position.x<wall_lines[i+2].x){ //Might need to change this to a small range above and below if there are bugs
                 if(state.position.x <= (wall_lines[i].x+wall_lines[i+2].x)/2){
                     state.feet.x = wall_lines[i].x;
                 }else {

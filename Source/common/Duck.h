@@ -16,7 +16,7 @@ class Duck{
         vec2 position = vec2(0,0);
         float gravity = 0.0040;
         bool jump = false;
-        float max_jump_height = 0.5;
+        float max_jump_height = 0.4;
         bool grounded = true;
         bool running = false;
         int direction;
@@ -49,6 +49,7 @@ class Duck{
         bool ground_check(std::vector<std::vector <vec3>> platforms); //vec4 h1, vec4 h2, vec4 v1, vec4 v2, vec4 v11, vec4 v22
         bool wall_check(std::vector<std::vector <vec3>> platforms);
         std::vector<vec3> get_current_vertices(){return current_vertices;}
+        vec2 get_position(){return state.position;}
 };
 
 #endif

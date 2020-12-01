@@ -7,7 +7,7 @@ class Hunter{
     std::vector <vec3> vertices;
     std::vector <vec3> colors;
     int num_vertices = sizeof(vertices)/sizeof(vertices[0]);
-    std::vector <vec3> hitbox;
+    std::vector <vec3> current_vertices;
     
 
     
@@ -48,7 +48,8 @@ class Hunter{
         void draw(mat4 proj);
         bool ground_check(std::vector<std::vector <vec3>> platforms); //vec4 h1, vec4 h2, vec4 v1, vec4 v2, vec4 v11, vec4 v22
         bool wall_check(std::vector<std::vector <vec3>> platforms);
-        std::vector<vec3> get_hitbox(){return hitbox;}
+        std::vector<vec3> get_current_vertices(){return current_vertices;}
+        vec2 get_position(){return state.position;}
 };
 
 #endif

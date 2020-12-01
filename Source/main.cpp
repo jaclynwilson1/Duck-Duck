@@ -6,7 +6,7 @@
 using namespace Angel;
 
 Duck duck;
-Map map{1};
+Map map(1);
 
 std::vector<std::vector<vec3>> hunters_hitboxes;
 Hunter hunter1;
@@ -113,7 +113,7 @@ void animate(){
       }
     }
   }
-
+  /*
   if (hunter_bullet_timer >= 5){
     int width, height;
 
@@ -123,6 +123,7 @@ void animate(){
     new_bullet(hunter1.get_position(),velocity);
     hunter_bullet_timer = 0;
   }
+  */
 }
 
 int main(void)

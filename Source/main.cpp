@@ -1,6 +1,5 @@
 //Duck! Duck!
 //main.cpp
-//Based off of provided "Asteroids!"" code
 
 #include "common.h"
 
@@ -9,6 +8,13 @@ using namespace Angel;
 Duck duck;
 Map map;
 
+std::vector<std::vector<vec3>> hunters_hitboxes;
+Hunter hunter1;
+Hunter hunter2;
+
+
+
+Bullet bullet(vec3(0,0.2,0), vec3(0.001,0,0));
 
 
 static void error_callback(int error, const char* description)
@@ -50,7 +56,9 @@ void init(){
   glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
   glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
   duck.gl_init(); //FIXME causes crashes
-  //map.gl_init();
+  map.gl_init();
+  hunter1.gl_init();
+  bullet.gl_init();
 }
 
 //Refreshes ~60 times a second
@@ -58,6 +66,11 @@ void animate(){
   if(glfwGetTime() > 0.016){
     glfwSetTime(0.0);
     duck.update_state(map);
+    hunter1.update_state(map);
+    hunters_hitboxes.clear();
+    hunters_hitboxes.push_back(hunter1.get_hitbox());
+    hunters_hitboxes.push_back(hunter2.get_hitbox());
+    bullet.update_state(map, duck.get_current_vertices(), hunters_hitboxes);
     
 
   }
@@ -73,14 +86,14 @@ int main(void)
     exit(EXIT_FAILURE);
   
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
-  glfwWindowHint(GLFW_SAMPLES, 10);
+  glfwWindowHint(GLFW_SAMPLES, 4);
   
   
-  window = glfwCreateWindow(1024, 768, "Duck! Duck!", NULL, NULL);
+  window = glfwCreateWindow(720, 720, "Duck! Duck!", NULL, NULL);
   if (!window){
     glfwTerminate();
     exit(EXIT_FAILURE);
@@ -95,7 +108,7 @@ int main(void)
   init();
   
   while (!glfwWindowShouldClose(window)){
-    
+    glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
     glViewport(0, 0, width, height);
@@ -110,7 +123,9 @@ int main(void)
     glClear(GL_COLOR_BUFFER_BIT);
     
     duck.draw(proj);
-    //map.draw(proj);
+    map.draw(proj);
+    hunter1.draw(proj);
+    bullet.draw(proj);
     
     glfwSwapBuffers(window);
     glfwPollEvents();

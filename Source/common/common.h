@@ -10,6 +10,7 @@
 #include <Angel.h>
 #include <vec.h>
 #include <mat.h>
+#include <math.h>
 #include <cmath>
 #include <iostream>
 #include <cstdio>
@@ -19,6 +20,8 @@
 using namespace Angel;
 
 #include "Duck.h"
+#include "Hunter.h"
+#include "Bullet.h"
 #include "shader.h"
 #include "Map.h"
 

@@ -30,10 +30,14 @@ include_directories(${CMAKE_SOURCE_DIR}/source
 add_executable(DuckDuck
         source/main.cpp
         source/Duck.cpp
+        source/Hunter.cpp
+        source/Bullet.cpp
         source/Map.cpp
         source/common/Angel.h
         source/common/common.h
         source/common/Duck.h
+        source/common/Hunter.h
+        source/common/Bullet.h
         source/common/Map.h
         source/common/mat.h
         source/common/vec.h
@@ -41,4 +45,6 @@ add_executable(DuckDuck
         shaders/fshader_Duck.glsl
         shaders/vshader_Duck.glsl
         shaders/fshader_Map.glsl
-        shaders/vshader_Map.glsl)
+        shaders/vshader_Map.glsl
+        shaders/fshader.glsl
+        shaders/vshader.glsl)

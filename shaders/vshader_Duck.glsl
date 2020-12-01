@@ -1,15 +1,18 @@
 #version 460
 
-in vec4 vPos;
-in vec4 vColor;
-out vec4 color;
+in vec3 vPos;
+in vec3 vColor;
 
 uniform mat4 M;
+
+out vec4 pos;
+out vec4 color;
 
 
 void
 main()
 {
-  gl_Position = M*vPos;
-  color = vColor;
+  pos = M*vec4(vPos,1.0);
+  gl_Position = pos;
+  color = vec4(vColor,1);
 }

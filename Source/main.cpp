@@ -6,6 +6,7 @@
 using namespace Angel;
 
 Duck duck;
+vec2 duck_position;
 Map map(1);
 
 std::vector<std::vector<vec3>> hunters_hitboxes;
@@ -73,13 +74,24 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
       glfwGetCursorPos(window, &xpos, &ypos);
       glfwGetFramebufferSize(window, &width, &height);
-
+      /*
       velocity.x = -1.0 + 2.0 * xpos / width; 
-      velocity.y = 1.0 - 2.0 * ypos / height;  
-
-      velocity.y *= -1;
-      velocity /= 100;
-      new_bullet(duck.get_position(), velocity);
+      velocity.y = 1.0 - 2.0 * ypos / height;
+      */
+      if(xpos<=(width/2)){
+        velocity.x = -1*(1 - (xpos/(width/2)));
+      }else if(xpos>(width/2)){
+        velocity.x = (xpos-(width/2))/(width/2);
+      }
+      if(ypos<=(height/2)){
+        velocity.y = (1 - (ypos/(height/2)));
+      }else if(ypos>(height/2)){
+        velocity.y = -1*((ypos-(height/2))/(height/2));
+      }
+      velocity-=duck.get_position();
+      velocity /= 75;
+      //new_bullet(vec2(velocity.x*100,velocity.y*100),vec2(0,0));
+      new_bullet(vec2(duck.get_current_vertices()[0].x,duck.get_current_vertices()[0].y), velocity);
     }
 }
 
@@ -90,7 +102,9 @@ void init(){
   duck.gl_init(); //FIXME causes crashes
   map.gl_init();
   hunter1.gl_init();
-}
+
+  
+  }
 
 //Refreshes ~60 times a second
 void animate(){
@@ -99,6 +113,7 @@ void animate(){
     glfwSetTime(0.0);
     
     duck.update_state(map);
+    duck_position = duck.get_position();
     hunter1.update_state(map);
     hunter2.update_state(map);
     hunters_hitboxes.clear();

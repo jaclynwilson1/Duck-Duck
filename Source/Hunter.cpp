@@ -71,13 +71,9 @@ void Hunter::update_state(Map map){
     //Set GL state to use this buffer
     glBindBuffer(GL_ARRAY_BUFFER, GLvars.buffer);
 
-    int num_vertices = sizeof(vertices)/sizeof(vertices[0]);
     std::vector <vec3> temp_vertices;
 
-    for (int i = 0; i<vertices.size(); i++){
-        temp_vertices.push_back(vec3(vertices[i].x + state.position.x,vertices[i].y + state.position.y,0));
-        
-        if(state.running){
+    if(state.running){
             if(wall_check(map.get_platforms())){//If touching wall, no movement
                 state.position.x = state.feet.x;
             }
@@ -89,7 +85,7 @@ void Hunter::update_state(Map map){
         //Need Map to interact with hunter and grounded
         
         if (state.jump){
-            state.position.y += 0.01;
+            state.position.y += 0.03;
             if(state.position.y >= state.feet.y + state.max_jump_height){state.jump = false;}
         }else {
             state.position.y -= state.gravity;
@@ -99,6 +95,10 @@ void Hunter::update_state(Map map){
                 state.grounded=true;
             }    
         }
+
+    for (int i = 0; i<vertices.size(); i++){
+        temp_vertices.push_back(vec3(vertices[i].x + state.position.x,vertices[i].y + state.position.y,0));
+        
     }
     current_vertices.resize(temp_vertices.size());
     current_vertices = temp_vertices;
@@ -124,8 +124,8 @@ int Hunter::get_direction(){return state.direction;}
 
 
 void Hunter::gl_init(){
-    std::string vshader = shader_path + "vshader_Duck.glsl";
-    std::string fshader = shader_path + "fshader_Duck.glsl";
+    std::string vshader = shader_path + "vshader.glsl";
+    std::string fshader = shader_path + "fshader.glsl";
 
     GLchar* vertex_shader_source = readShaderSource(vshader.c_str());
     GLchar* fragment_shader_source = readShaderSource(fshader.c_str());

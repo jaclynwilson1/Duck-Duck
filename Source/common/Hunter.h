@@ -6,7 +6,6 @@
 class Hunter{
     std::vector <vec3> vertices;
     std::vector <vec3> colors;
-    int num_vertices = sizeof(vertices)/sizeof(vertices[0]);
     std::vector <vec3> current_vertices;
     
 
@@ -14,7 +13,7 @@ class Hunter{
     struct{
         int health;
         vec2 position = vec2(0.5,0.5);
-        float gravity = 0.0040;
+        float gravity = 0.06;
         bool jump = false;
         float max_jump_height = 0.5;
         bool grounded = true;

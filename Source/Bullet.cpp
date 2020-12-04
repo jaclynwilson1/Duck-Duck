@@ -6,7 +6,7 @@ Bullet::Bullet(vec3 position, vec2 velocity){
     vertices.push_back(position);
     
     state.velocity = velocity;
-    for (int i = 0; i < 362; i++) {
+    for (int i = 0; i < 362; i+=20) {
         double parameterization = i * (M_PI / 180);
         vertices.push_back(vec3(radius * cos(parameterization) + position.x, radius * sin(parameterization) + position.y,0));
     }
@@ -32,8 +32,8 @@ std::vector<vec3> Bullet::gen_bullet(vec3 position, vec3 direction){
 */
 
 void Bullet::gl_init(){
-    std::string vshader = shader_path + "vshader_Duck.glsl";
-    std::string fshader = shader_path + "fshader_Duck.glsl";
+    std::string vshader = shader_path + "vshader.glsl";
+    std::string fshader = shader_path + "fshader.glsl";
 
     GLchar* vertex_shader_source = readShaderSource(vshader.c_str());
     GLchar* fragment_shader_source = readShaderSource(fshader.c_str());
@@ -84,6 +84,7 @@ void Bullet::gl_init(){
     glVertexAttribPointer(GLvars.vcolor_location, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(vertices.size()*sizeof(vertices[0])));
 
     glBindVertexArray(0);
+    state.init = true;
 }
 
 void Bullet::draw(mat4 proj){
@@ -120,18 +121,19 @@ void Bullet::update_state(Map map, std::vector<vec3> duck_vert, std::vector<std:
         vertices.clear();
 
     }
-    /*  Commented out for testing bullets. Need to check if start in duck.
+
     if(duck_check(duck_vert)){
         state.dead = true;
+        vertices.clear();
     }
-    */
-   /*
+
+
     if(hunters_check(hunters_hitboxes)){
         state.dead = true;
         vertices.clear();
 
     }
-    */
+
     //Send new vertices to buffer
     glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size()*sizeof(vertices[0]), &vertices[0]);
     glBindVertexArray(0);

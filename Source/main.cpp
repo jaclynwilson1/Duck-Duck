@@ -6,7 +6,6 @@
 using namespace Angel;
 
 Duck duck;
-vec2 duck_position;
 Map map(1);
 
 std::vector<std::vector<vec3>> hunters_hitboxes;
@@ -16,7 +15,6 @@ Hunter hunter2;
 
 std::vector<Bullet> bullets;
 double hunter_bullet_timer;
-
 
 
 void new_bullet(vec2 start_position, vec2 velocity){
@@ -91,7 +89,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
       velocity-=duck.get_position();
       velocity /= 75;
       //new_bullet(vec2(velocity.x*100,velocity.y*100),vec2(0,0));
-      new_bullet(vec2(duck.get_current_vertices()[0].x,duck.get_current_vertices()[0].y), velocity);
+      new_bullet(vec2(duck.get_current_vertices()[0].x+velocity.x*10,duck.get_current_vertices()[0].y+velocity.y*10 - 0.075), velocity);
     }
 }
 
@@ -113,7 +111,6 @@ void animate(){
     glfwSetTime(0.0);
     
     duck.update_state(map);
-    duck_position = duck.get_position();
     hunter1.update_state(map);
     hunter2.update_state(map);
     hunters_hitboxes.clear();
@@ -122,23 +119,26 @@ void animate(){
     //bullet.gl_init();
     //bullet.update_state(map, duck.get_current_vertices(), hunters_hitboxes);
     for(int i=0;i<bullets.size();i++){
-      if(!bullets[i].dead_check()){
+      if(!bullets[i].init_check()){
         bullets[i].gl_init();
+      }
+      if(!bullets[i].dead_check()){
         bullets[i].update_state(map, duck.get_current_vertices(), hunters_hitboxes);
       }
     }
   }
-  /*
+  
   if (hunter_bullet_timer >= 5){
     int width, height;
 
-    vec2 velocity = duck.get_position();
+    vec2 velocity = duck.get_position() - hunter1.get_position();
+    normalize(velocity);
     velocity/=100;
 
-    new_bullet(hunter1.get_position(),velocity);
+    //new_bullet(hunter1.get_position(),velocity);
     hunter_bullet_timer = 0;
   }
-  */
+  
 }
 
 int main(void)
@@ -193,7 +193,7 @@ int main(void)
     hunter1.draw(proj);
     hunter2.draw(proj);
     for(int i=0; i<bullets.size();i++){
-      //bullets[i].gl_init();
+      bullets[i].gl_init();
       bullets[i].draw(proj);
     }
 

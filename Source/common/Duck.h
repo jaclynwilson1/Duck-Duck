@@ -5,26 +5,33 @@
 
 class Duck{
     std::vector <vec3> vertices;
-    std::vector <vec3> current_vertices;
+    int num_head_vert;
+    int num_body_vert;
+    int num_wing_vert;
+
+    std::vector <vec3> normals;
+    std::vector <vec2> uvs;
     std::vector <vec3> colors;
-    int num_vertices = sizeof(vertices)/sizeof(vertices[0]);
+
+    std::vector <vec3> current_vertices;//used when animating
+
+    vec2 tex_coord[4];
+
     
 
     
     struct{
         int health;
-        vec2 position = vec2(0,0);
-        float gravity = 0.0040;
+        vec2 position;
+        float gravity = 0.010;
+        float jump_speed = 0.03;
         bool jump = false;
         float max_jump_height = 0.4;
         bool grounded = true;
         bool running = false;
         int direction;
-        float run_speed = 0.003;
+        float run_speed = 0.01;
         vec2 feet;
-
-        
-        
     } state;
 
     struct {
@@ -32,8 +39,10 @@ class Duck{
     GLuint program;       //shader program
     GLuint buffer;        //Vertex buffer objects
     GLuint vertex_shader, fragment_shader;  //Shaders
-    GLint vpos_location, vcolor_location;   //reference to pos and color in shaders
+    GLint vPosition,vNormal,vColor, vTexCoord;   //reference to pos and color in shaders
     GLint M_location;     //Reference to matrix in shader
+    GLint tex_coord_location;
+    unsigned int texture;
     } GLvars;
 
     public:

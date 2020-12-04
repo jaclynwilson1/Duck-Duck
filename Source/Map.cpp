@@ -6,7 +6,7 @@ Map::Map(int i){
     //Need to decide where to handle collision of duck and platform
     //Map 1
     if(i == 1){
-        platforms.push_back(gen_platform(vec3(-1,0-0.5,1),2,0.5,1));
+        platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));
     }
     
     
@@ -23,8 +23,8 @@ Map::Map(int i){
 };
 
 void Map::gl_init(){
-    std::string vshader = shader_path + "vshader_Duck.glsl";
-    std::string fshader = shader_path + "fshader_Duck.glsl";
+    std::string vshader = shader_path + "vshader.glsl";
+    std::string fshader = shader_path + "fshader.glsl";
 
     GLchar* vertex_shader_source = readShaderSource(vshader.c_str());
     GLchar* fragment_shader_source = readShaderSource(fshader.c_str());

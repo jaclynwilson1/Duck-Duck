@@ -41,6 +41,8 @@ add_executable(DuckDuck
         source/common/Map.h
         source/common/mat.h
         source/common/vec.h
+        source/common/lodepng.cpp
+        source/common/lodepng.h
         shaders/shader.cpp
         shaders/fshader_Duck.glsl
         shaders/vshader_Duck.glsl

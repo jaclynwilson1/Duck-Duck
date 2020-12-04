@@ -14,6 +14,7 @@ class Bullet{
     struct{
         vec2 velocity;
         bool dead=false;
+        bool init=false;
     } state;
 
     struct {
@@ -36,6 +37,8 @@ class Bullet{
         bool duck_check(std::vector<vec3> duck_vert);
         bool hunters_check(std::vector<std::vector<vec3>> hunters_hitboxes);
         bool dead_check(){return state.dead;}
+        bool init_check(){return state.init;}
+
 };
 
 

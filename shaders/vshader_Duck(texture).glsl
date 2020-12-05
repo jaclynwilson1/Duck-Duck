@@ -3,12 +3,14 @@
 in vec3 vPos;
 in vec3 vNormal;
 in vec3 vColor;
+in vec2 vTexCoord;
 
 uniform mat4 M;
 
 out vec4 pos;
 out vec4 N;
 out vec4 color;
+out vec2 texCoord;
 
 void
 main()
@@ -18,4 +20,5 @@ main()
   N = normalize(N);
   gl_Position = pos;
   color = vec4(vColor,1);
+  texCoord = vTexCoord;
 }

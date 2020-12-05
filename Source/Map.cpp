@@ -5,8 +5,58 @@ Map::Map(int i){
     //Generate the map by using gen_platforms to place platforms
     //Need to decide where to handle collision of duck and platform
     //Map 1
-    if(i == 1){
-        platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));
+    if(i == 0){
+        platforms.push_back(gen_platform(vec3(-1.5,-0.75,1),2.5,0.5,1));//ground
+        platforms.push_back(gen_platform(vec3(-1.1,1,1),0.1,2,1));//left boundary
+        platforms.push_back(gen_platform(vec3(-0.7,-0.6,1),0.1,0.5,1));//small wall by duck
+
+
+        platforms.push_back(gen_platform(vec3(-1.5,-0.40,1),1.75,0.05,1));//floating plat
+        platforms.push_back(gen_platform(vec3(0.95,0.75,1),0.1,1.75,1));//right wall
+        platforms.push_back(gen_platform(vec3(-0.15,0.75,1),1.10,0.075,1));//top plat
+
+        platforms.push_back(gen_platform(vec3(-0.7,-0.10,1),1.7,0.05,1));//floating plat
+        //steps
+        platforms.push_back(gen_platform(vec3(0.2,0.1,1),0.25,0.05,1));//first step enemy plat
+        platforms.push_back(gen_platform(vec3(-0.05,0.25,1),0.25,0.05,1));//second step
+        platforms.push_back(gen_platform(vec3(-0.3,0.40,1),0.25,0.05,1));//third step
+        platforms.push_back(gen_platform(vec3(-0.55,0.55,1),0.25,0.05,1));//fourth step
+        platforms.push_back(gen_platform(vec3(-0.80,0.70,1),0.25,0.05,1));//fifth step
+
+    }else if(i == 1){
+        platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));//ground
+        platforms.push_back(gen_platform(vec3(-1.1,0.75,1),1.10,0.075,1));//top plat
+        platforms.push_back(gen_platform(vec3(0.95,1,1),0.1,1.5,1));//right wall
+        platforms.push_back(gen_platform(vec3(-0.7,0.2,1),1.7,0.075,1));//floating plat
+        platforms.push_back(gen_platform(vec3(-0.7,0.2,1),0.075,0.8,1));//floating wall
+
+        platforms.push_back(gen_platform(vec3(0.75,-0.45,1),0.3,0.075,1));//floating plat
+
+
+
+
+
+    }else if(i == 2){
+        platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));//Ground
+
+        //F
+        platforms.push_back(gen_platform(vec3(-0.65,0.8,1),0.07,1,1));
+        platforms.push_back(gen_platform(vec3(-0.65,0.8,1),0.5,0.075,1));//floating plat
+        platforms.push_back(gen_platform(vec3(-0.65,0.4,1),0.4,0.075,1));//floating plat
+
+
+        //I
+        platforms.push_back(gen_platform(vec3(-0.05,0.8,1),0.07,1,1));
+        //N
+        platforms.push_back(gen_platform(vec3(0.25,0.8,1),0.07,1,1));
+        platforms.push_back(gen_platform(vec3(0.25,0.8,1),0.6,0.075,1));//floating plat
+        platforms.push_back(gen_platform(vec3(0.78,0.8,1),0.07,1,1));
+
+
+
+
+
+
     }
     
     
@@ -16,10 +66,25 @@ Map::Map(int i){
         for(int j=0;j < platforms[i].size();j++){
             vertices.push_back(platforms[i][j]);
         }
+        colors.push_back(vec3(0.7,0.39,0.11));
+        colors.push_back(vec3(0.7,0.39,0.11));
+        colors.push_back(vec3(0.22,0.4,0));
+        colors.push_back(vec3(0.22,0.4,0));
+        colors.push_back(vec3(0.22,0.4,0));
+        colors.push_back(vec3(0.7,0.39,0.11));
     }
+    /*
     for(int i = 0; i < vertices.size();i++){
         colors.push_back(vec3(0.22,0.4,0));
     }
+    */
+        colors.push_back(vec3(0.7,0.39,0.11));
+        colors.push_back(vec3(0.7,0.39,0.11));
+        colors.push_back(vec3(0.22,0.4,0));
+        colors.push_back(vec3(0.22,0.4,0));
+        colors.push_back(vec3(0.22,0.4,0));
+        colors.push_back(vec3(0.7,0.39,0.11));
+
 };
 
 void Map::gl_init(){

@@ -3,6 +3,11 @@
 
 
 Hunter::Hunter(){
+    state.alive = (bool*) malloc(sizeof(bool));
+    *state.alive = true;
+    initial_hitbox.push_back(vec3(-0.03,0,0));
+    initial_hitbox.push_back(vec3(0.03,0.1,0));
+    /*
     //draw the hunter here
     vertices.push_back(vec3(-0.025,0,0));
     vertices.push_back(vec3(-0.025,0.075,0));
@@ -12,7 +17,159 @@ Hunter::Hunter(){
     for(int i = 0; i < vertices.size();i++){
         colors.push_back(vec3(1,0,0));
     }
+    */
+    float radius = 0.1;
+    double parameterization = 0;
 
+    //head
+    for (int i = 1; i < 362; i++) {
+        parameterization = i * (M_PI / 180);
+        vertices.push_back(vec3(radius * cos(parameterization)+0.1, radius * sin(parameterization)+0.5, 0));
+      }
+    for(int i = 0; i < vertices.size();i++){
+        colors.push_back(vec3(0.6,0.6,0.1));
+    }
+    head_size = vertices.size();
+    
+    
+ 
+    //body
+    vertices.push_back(vec3(0.1, 0.4, 0));
+    vertices.push_back(vec3(0.0, 0.2, 0));
+    vertices.push_back(vec3(0.2, 0.2, 0));
+    
+    vertices.push_back(vec3(0.2, 0.2, 0));
+    vertices.push_back(vec3(0.2, 0.4, 0));
+    vertices.push_back(vec3(0.1, 0.4, 0));
+    
+    vertices.push_back(vec3(0.0, 0.2, 0));
+    vertices.push_back(vec3(0.0, 0.4, 0));
+    vertices.push_back(vec3(0.1, 0.4, 0));
+    
+    for(int i =0; i<9; i++){
+    colors.push_back(vec3(0.2, 0.3, 0.2));
+        
+    }
+    //body = vertices.size()-head_size
+    
+    
+    
+    //legs
+    vertices.push_back(vec3(0.1, 0.2, 0));
+    vertices.push_back(vec3(0.0, 0.2, 0));
+    vertices.push_back(vec3(-0.05, 0.0, 0));
+    
+    vertices.push_back(vec3(0.1, 0.2, 0));
+    vertices.push_back(vec3(-0.05, 0.0, 0));
+    vertices.push_back(vec3(0.05, 0.0, 0));
+    
+    vertices.push_back(vec3(0.1, 0.2, 0));
+    vertices.push_back(vec3(0.2, 0.2, 0));
+    vertices.push_back(vec3(0.25, 0.0, 0));
+    
+    vertices.push_back(vec3(0.1, 0.2, 0));
+    vertices.push_back(vec3(0.25, 0.0, 0));
+    vertices.push_back(vec3(0.15, 0.0, 0));
+    
+    for(int i =0; i<12; i++){
+        colors.push_back(vec3(0.2, 0.1, 0));
+    }
+    //vest
+    vertices.push_back(vec3(0.0, 0.4, 0));
+    vertices.push_back(vec3(0.0, 0.18, 0));
+    vertices.push_back(vec3(0.05, 0.18, 0));
+    
+    vertices.push_back(vec3(0.0, 0.4, 0));
+    vertices.push_back(vec3(0.05, 0.18, 0));
+    vertices.push_back(vec3(0.05, 0.4, 0));
+    
+    vertices.push_back(vec3(0.15, 0.4, 0));
+    vertices.push_back(vec3(0.15, 0.18, 0));
+    vertices.push_back(vec3(0.2, 0.18, 0));
+    
+    vertices.push_back(vec3(0.15, 0.4, 0));
+    vertices.push_back(vec3(0.2, 0.4, 0));
+    vertices.push_back(vec3(0.2, 0.18, 0));
+    
+    
+    for(int i =0; i<12; i++){
+    colors.push_back(vec3(1, 0.7, 0));
+        
+    }
+    
+    //arms
+    vertices.push_back(vec3(0, 0.4, 0));
+    vertices.push_back(vec3(-0.1, 0.4, 0));
+    vertices.push_back(vec3(-0.15, 0.2, 0));
+    
+    vertices.push_back(vec3(0, 0.4, 0));
+    vertices.push_back(vec3(-0.15, 0.2, 0));
+    vertices.push_back(vec3(-0.05, 0.2, 0));
+    
+    vertices.push_back(vec3(0.2, 0.4, 0));
+    vertices.push_back(vec3(0.3, 0.4, 0));
+    vertices.push_back(vec3(0.35, 0.2, 0));
+    
+    vertices.push_back(vec3(0.2, 0.4, 0));
+    vertices.push_back(vec3(0.35, 0.2, 0));
+    vertices.push_back(vec3(0.25, 0.2, 0));
+    
+    for(int i =0; i<12; i++){
+        colors.push_back(vec3(0.2, 0.3, 0.2));
+    }
+    int body = vertices.size()-head_size;
+    
+    //shot gun
+    vertices.push_back(vec3(0.35, 0.23, 0));
+    vertices.push_back(vec3(0, 0.23, 0));
+    vertices.push_back(vec3(0.35, 0.13, 0));
+    for(int i=0; i<3; i++){
+        colors.push_back(vec3(0.3, 0.3, 0));
+    }
+    
+    vertices.push_back(vec3(0.08, 0.19, 0));
+    vertices.push_back(vec3(0.08, 0.23, 0));
+    vertices.push_back(vec3(-0.2, 0.23, 0));
+    
+    vertices.push_back(vec3(0.08, 0.19, 0));
+    vertices.push_back(vec3(-0.2, 0.19, 0));
+    vertices.push_back(vec3(-0.2, 0.23, 0));
+    for(int i=0; i<6; i++){
+        colors.push_back(vec3(0.3, 0.4, 0.5));
+    }
+    
+    
+    //Hat
+    vertices.push_back(vec3(0, 0.57, 0));
+    vertices.push_back(vec3(0, 0.65, 0));
+    vertices.push_back(vec3(0.2, 0.65, 0));
+    
+    vertices.push_back(vec3(0, 0.57, 0));
+    vertices.push_back(vec3(0.2, 0.65, 0));
+    vertices.push_back(vec3(0.2, 0.57, 0));
+    
+    
+    vertices.push_back(vec3(0, 0.57, 0));
+    vertices.push_back(vec3(0, 0.43, 0));
+    vertices.push_back(vec3(0.03, 0.43, 0));
+    
+    vertices.push_back(vec3(0, 0.57, 0));
+    vertices.push_back(vec3(0.03, 0.57, 0));
+    vertices.push_back(vec3(0.03, 0.43, 0));
+    
+    vertices.push_back(vec3(0.17, 0.57, 0));
+    vertices.push_back(vec3(0.17, 0.43, 0));
+    vertices.push_back(vec3(0.2, 0.43, 0));
+    
+    vertices.push_back(vec3(0.17, 0.57, 0));
+    vertices.push_back(vec3(0.2, 0.57, 0));
+    vertices.push_back(vec3(0.2, 0.43, 0));
+    for(int i =0; i<36; i++){
+        colors.push_back(vec3(0.2, 0.2, 0.2));
+    }
+    for(int i = 0; i < vertices.size(); i++){
+        vertices[i] /= 5;
+    }
 
 };
 
@@ -73,6 +230,11 @@ void Hunter::update_state(Map map){
 
     std::vector <vec3> temp_vertices;
 
+    hitbox.clear();
+    for(int i=0;i<initial_hitbox.size();i++){
+        hitbox.push_back(vec3(initial_hitbox[i].x+state.position.x,initial_hitbox[i].y+state.position.y,0));
+    }
+
     if(state.running){
             if(wall_check(map.get_platforms())){//If touching wall, no movement
                 state.position.x = state.feet.x;
@@ -100,8 +262,14 @@ void Hunter::update_state(Map map){
         temp_vertices.push_back(vec3(vertices[i].x + state.position.x,vertices[i].y + state.position.y,0));
         
     }
-    current_vertices.resize(temp_vertices.size());
-    current_vertices = temp_vertices;
+    if(temp_vertices.size()>0){
+        current_vertices.resize(temp_vertices.size());
+        current_vertices = temp_vertices;
+    }
+    if(!*state.alive){
+        vertices.clear();
+        head_size = 0;
+    }
     //Send new vertices to buffer
     glBufferSubData(GL_ARRAY_BUFFER, 0, temp_vertices.size()*sizeof(temp_vertices[0]), &temp_vertices[0]);
     glBindVertexArray(0);
@@ -187,7 +355,9 @@ void Hunter::draw(mat4 proj){
     glUniformMatrix4fv(GLvars.M_location, 1, GL_TRUE, proj);
 
     //Draw something
-    glDrawArrays(GL_LINE_LOOP, 0, vertices.size());
+    glDrawArrays(GL_TRIANGLE_FAN, 0, head_size);
+    //glDrawArrays(GL_TRIANGLE_FAN, head_size, eyes);
+    glDrawArrays(GL_TRIANGLES, head_size, vertices.size());
 
     glBindVertexArray(0);
     glUseProgram(0);

@@ -30,12 +30,12 @@ class Bullet{
         Bullet(vec3 position, vec2 velocity);
         void gl_init();
         void draw(mat4 proj);
-        void update_state(Map map, std::vector <vec3> duck_vert, std::vector<std::vector<vec3>> hunters_hitboxes);
+        void update_state(Map map, std::vector<vec3> duck_vert, bool* duck_alive_pointer, std::vector<std::vector<vec3>> hunters_hitboxes, std::vector<bool*> hunters_alive_pointers);
         //std::vector<vec3> gen_bullet(vec3 position, vec3 direction);
         bool ground_check(std::vector<std::vector <vec3>> platforms);
         bool wall_check(std::vector<std::vector <vec3>> platforms);
         bool duck_check(std::vector<vec3> duck_vert);
-        bool hunters_check(std::vector<std::vector<vec3>> hunters_hitboxes);
+        bool hunters_check(std::vector<std::vector<vec3>> hunters_hitboxes, std::vector<bool*> hunters_alive_pointers);
         bool dead_check(){return state.dead;}
         bool init_check(){return state.init;}
 

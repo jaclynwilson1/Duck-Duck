@@ -16,20 +16,7 @@ Bullet::Bullet(vec3 position, vec2 velocity){
 
     
 };
-/*
-std::vector<vec3> Bullet::gen_bullet(vec3 position, vec3 direction){
-    std::vector <vec3> bullet;
-    directions.push_back(direction);
-    bullet.push_back(position);
-    for (int i = 0; i < 362; i++) {
-        float radius = 0.02;
-        double parameterization = i * (M_PI / 180);
-        bullet.push_back(vec3(radius * cos(parameterization) + position.x, radius * sin(parameterization) + position.y,0));
-    }
 
-    return bullet;
-}
-*/
 
 void Bullet::gl_init(){
     std::string vshader = shader_path + "vshader.glsl";
@@ -101,7 +88,7 @@ void Bullet::draw(mat4 proj){
     glUseProgram(0);
 }
 
-void Bullet::update_state(Map map, std::vector<vec3> duck_vert, std::vector<std::vector<vec3>> hunters_hitboxes){
+void Bullet::update_state(Map map, std::vector<vec3> duck_vert, bool* duck_alive_pointer, std::vector<std::vector<vec3>> hunters_hitboxes, std::vector<bool*> hunters_alive_pointers){
     //Set GL state to use vertex array object
     glBindVertexArray(GLvars.vao);
     //Set GL state to use this buffer
@@ -125,15 +112,13 @@ void Bullet::update_state(Map map, std::vector<vec3> duck_vert, std::vector<std:
     if(duck_check(duck_vert)){
         state.dead = true;
         vertices.clear();
+        *duck_alive_pointer = false;
     }
 
-
-    if(hunters_check(hunters_hitboxes)){
+    if(hunters_check(hunters_hitboxes, hunters_alive_pointers)){
         state.dead = true;
         vertices.clear();
-
     }
-
     //Send new vertices to buffer
     glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size()*sizeof(vertices[0]), &vertices[0]);
     glBindVertexArray(0);
@@ -191,19 +176,21 @@ bool Bullet::wall_check(std::vector<std::vector <vec3>> platforms){
 }
 
 bool Bullet::duck_check(std::vector<vec3> duck_vert){
-    if(vertices[0].x >= duck_vert[0].x && vertices[0].x <= duck_vert[2].x){
-        if(vertices[0].y >= duck_vert[0].y && vertices[0].y <= duck_vert[2].y){
+    if(vertices[0].x >= duck_vert[0].x && vertices[0].x <= duck_vert[1].x){
+        if(vertices[0].y >= duck_vert[0].y && vertices[0].y <= duck_vert[1].y){
             return true;
         }
     }
     return false;
 
 }
-bool Bullet::hunters_check(std::vector<std::vector<vec3>> hunters_hitboxes){
+bool Bullet::hunters_check(std::vector<std::vector<vec3>> hunters_hitboxes, std::vector<bool*> hunters_alive_pointers){
     for(int i=0; i<hunters_hitboxes.size();i++){
         std::vector <vec3> hitbox = hunters_hitboxes[i];
-        if(vertices[0].x >= hitbox[0].x && vertices[0].x <= hitbox[2].x){
-            if(vertices[0].y >= hitbox[0].y && vertices[0].y <= hitbox[2].y){
+        
+        if(vertices[0].x >= hitbox[0].x && vertices[0].x <= hitbox[1].x){
+            if(vertices[0].y >= hitbox[0].y && vertices[0].y <= hitbox[1].y){
+                *hunters_alive_pointers[i] = false;
                 return true;
             }
         } 

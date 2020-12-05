@@ -6,7 +6,7 @@ Hunter::Hunter(){
     state.alive = (bool*) malloc(sizeof(bool));
     *state.alive = true;
     initial_hitbox.push_back(vec3(-0.03,0,0));
-    initial_hitbox.push_back(vec3(0.03,0.1,0));
+    initial_hitbox.push_back(vec3(0.03,0.15,0));
     /*
     //draw the hunter here
     vertices.push_back(vec3(-0.025,0,0));
@@ -269,6 +269,7 @@ void Hunter::update_state(Map map){
     if(!*state.alive){
         vertices.clear();
         head_size = 0;
+        state.position.y -= 1.5;
     }
     //Send new vertices to buffer
     glBufferSubData(GL_ARRAY_BUFFER, 0, temp_vertices.size()*sizeof(temp_vertices[0]), &temp_vertices[0]);

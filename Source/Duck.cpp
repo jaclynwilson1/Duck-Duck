@@ -18,31 +18,7 @@ float  material_shininess = 10;
 
 Duck::Duck(){
     //draw the duck here
-    /*
-    vertices.push_back(vec3(-0.025,0,0));
-    vertices.push_back(vec3(-0.025,0.075,0));
-    vertices.push_back(vec3(0.025,0.075,0));
-
-    vertices.push_back(vec3(0.025,0.075,0));
-    vertices.push_back(vec3(0.025,0,0));
-    vertices.push_back(vec3(-0.025,0,0));
-
-    for(int i = 0; i < vertices.size();i++){
-        normals.push_back(vec3(0,0,1));
-    }
-    
-    uvs.push_back(vec2(0,0));
-    uvs.push_back(vec2(0,1));
-    uvs.push_back(vec2(1,1));
-    uvs.push_back(vec2(1,1));
-    uvs.push_back(vec2(1,0));
-    uvs.push_back(vec2(0,0));
-
-
-    for(int i = 0; i < vertices.size();i++){
-        colors.push_back(vec3(1,0,0));
-    }
-    */
+   
    state.alive = (bool*) malloc(sizeof(bool));
     *state.alive = true;
    
@@ -222,7 +198,6 @@ void Duck::update_state(Map map){
             }
             if(state.position.y >= state.feet.y + state.max_jump_height){state.jump = false;}
         }else {
-            /*if (state.position.y <=0) {state.position.y = 0;state.grounded=true;}*/
             if (ground_check(map.get_platforms())){
                 state.position.y = state.feet.y;
                 state.grounded=true;
@@ -231,22 +206,17 @@ void Duck::update_state(Map map){
             }
         }
 
-    for (int i = 0; i<vertices.size(); i++){
-        temp_vertices.push_back(vec3((vertices[i].x + state.position.x),vertices[i].y + state.position.y,0));
-    }
-
-    /*
-    //Reflect duck across its middle if duck moving left
     if(state.direction == -1){
-        for (int i = 0; i< temp_vertices.size();i++){
-            if(temp_vertices[i].x<state.feet.x){
-                temp_vertices[i].x += sqrt((pow(temp_vertices[i].x-state.feet.x,2)));
-            }else if(temp_vertices[i].x>state.feet.x){
-                temp_vertices[i].x = temp_vertices[i].x - sqrt((pow(temp_vertices[i].x-state.feet.x,2)));
-            }
+        for (int i = 0; i<vertices.size(); i++){
+            temp_vertices.push_back(vec3(((-1*vertices[i].x) + state.position.x),vertices[i].y + state.position.y,0));
+        }
+    }else {
+        for (int i = 0; i<vertices.size(); i++){
+            temp_vertices.push_back(vec3((vertices[i].x + state.position.x),vertices[i].y + state.position.y,0));
         }
     }
-    */
+
+    
     
 
     //Track which map duck is on

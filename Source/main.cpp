@@ -93,6 +93,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
       velocity.x = -1.0 + 2.0 * xpos / width; 
       velocity.y = 1.0 - 2.0 * ypos / height;
       */
+      ypos+=20;
       if(xpos<=(width/2)){
         velocity.x = -1*(1 - (xpos/(width/2)));
       }else if(xpos>(width/2)){
@@ -105,7 +106,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
       }
       velocity-=duck.get_position();
       velocity /= 75;
-      new_bullet(vec2(duck.get_current_vertices()[0].x+velocity.x*10,duck.get_current_vertices()[0].y+velocity.y*10 - 0.075), velocity);
+      new_bullet(vec2(duck.get_current_vertices()[0].x+velocity.x*10,duck.get_current_vertices()[0].y+velocity.y*10 - 0.06), velocity);
     }
 }
 
@@ -192,7 +193,7 @@ void animate(){
     }
   }
   
-  if (hunter0_bullet_timer >= 4 && *hunter0.get_alive_pointer()){ //Hunter 0
+  if (hunter0_bullet_timer >= 3 && *hunter0.get_alive_pointer()){ //Hunter 0
 
     vec2 velocity = duck.get_position() - hunter0.get_position();
     velocity.y += 0.03;
@@ -202,7 +203,7 @@ void animate(){
     new_bullet(hunter0.get_position()+velocity*10,velocity);
     hunter0_bullet_timer = 0;
   }
-  if (hunter1_bullet_timer >= 3 && *hunter1.get_alive_pointer()){ //Hunter 1
+  if (hunter1_bullet_timer >= 2 && *hunter1.get_alive_pointer()){ //Hunter 1
 
     vec2 velocity = duck.get_position() - hunter1.get_position();
     velocity.y += 0.03;
@@ -212,7 +213,7 @@ void animate(){
     new_bullet(hunter1.get_position()+velocity*11,velocity);
     hunter1_bullet_timer = 0;
   }
-  if (hunter2_bullet_timer >= 2 && *hunter2.get_alive_pointer()){ //Hunter 2
+  if (hunter2_bullet_timer >= 1 && *hunter2.get_alive_pointer()){ //Hunter 2
 
     vec2 velocity = duck.get_position() - hunter2.get_position();
     velocity.y += 0.03;
@@ -223,7 +224,7 @@ void animate(){
     }
     hunter2_bullet_timer = 0;
   }
-  if (hunter3_bullet_timer >= 1 && *hunter3.get_alive_pointer()){ //Hunter 3
+  if (hunter3_bullet_timer >= 0.75 && *hunter3.get_alive_pointer()){ //Hunter 3
 
     vec2 velocity = duck.get_position() - hunter3.get_position();
     velocity.y += 0.03;

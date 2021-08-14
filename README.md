@@ -1,6 +1,7 @@
 # Duck-Duck
 Intro to Computer Graphics Final Project
 
-TO-DO:
-* Texture mapping
-* Shading
+
+Demo Video:
+https://www.youtube.com/watch?v=HemGh0h-m_g
+

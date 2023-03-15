@@ -30,3 +30,6 @@ using the mouse, a right click will cause the duck to shoot back at whatever the
 5. make
 6. run
     ./DuckDuck
+
+## About
+This project uses OpenGL.

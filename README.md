@@ -18,3 +18,15 @@ Opens up window with a duck as the user. Goal of the game is to move through the
 
 using the mouse, a right click will cause the duck to shoot back at whatever the icon is hitting
 
+
+# Build and Compile (MacOS)
+1. Install Homebrew
+2. Install CMake via Homebrew
+    brew install cmake
+    check installation with:
+    cmake
+3. mkdir build && cd build
+4. cmake ..
+5. make
+6. run
+    ./DuckDuck

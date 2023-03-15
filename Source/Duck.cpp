@@ -234,6 +234,7 @@ void Duck::update_state(Map map){
     if(temp_vertices.size()>0){
         current_vertices.resize(temp_vertices.size());
         current_vertices = temp_vertices;
+        //Add capability to come back to life for another round
     }
 
     //Check if alive

@@ -33,3 +33,9 @@ using the mouse, a right click will cause the duck to shoot back at whatever the
 
 ## About
 This project uses OpenGL.
+
+### Future Release
+Future Release will include:
+- Start option
+- View stats
+- Duck returns back

@@ -22,14 +22,29 @@ using the mouse, a right click will cause the duck to shoot back at whatever the
 # Build and Compile (MacOS)
 1. Install Homebrew
 2. Install CMake via Homebrew
+    ```
     brew install cmake
+    ```
     check installation with:
+    ```
     cmake
-3. mkdir build && cd build
-4. cmake ..
-5. make
+    ```
+3. 
+```
+mkdir build && cd build
+```
+4. 
+```
+cmake ..
+```
+5. 
+```
+make
+```
 6. run
+   ``` 
     ./DuckDuck
+    ```
 
 ## About
 This project uses OpenGL.

@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libglad.a "CMakeFiles/glad.dir/glfw-3.3.2/deps/glad_gl.c.o"
-/Library/Developer/CommandLineTools/usr/bin/ranlib libglad.a

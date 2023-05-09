@@ -5,6 +5,8 @@ project(Duck!Duck!)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+find_package(doctest REQUIRED)
+
 #Compile and Link GLFW
 add_subdirectory(glfw-3.3.2)
 
@@ -49,4 +51,8 @@ add_executable(DuckDuck
         shaders/fshader_Map.glsl
         shaders/vshader_Map.glsl
         shaders/fshader.glsl
-        shaders/vshader.glsl)
+        shaders/vshader.glsl
+        tests/tests.cpp)
+
+target_compile_features(tests PRIVATE cxx_std_17)
+target_link_libraries(tests PRIVATE doctest::doctest)

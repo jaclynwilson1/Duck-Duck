@@ -21,7 +21,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/src/glfw_config.h.in"
   "/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/tests/CMakeLists.txt"
   "/Users/jaclyn/Desktop/Duck-Duck/shaders/shader.cpp.in"
-  "/Users/jaclyn/Desktop/Duck-Duck/tests/CMakeLists.txt"
   "/opt/homebrew/Cellar/cmake/3.26.0/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/opt/homebrew/Cellar/cmake/3.26.0/share/cmake/Modules/CMakeCCompiler.cmake.in"
   "/opt/homebrew/Cellar/cmake/3.26.0/share/cmake/Modules/CMakeCCompilerABI.c"
@@ -213,7 +212,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "glfw-3.3.2/tests/windows.app/Contents/Info.plist"
   "glfw-3.3.2/tests/windows.app/Contents/Info.plist"
   "glfw-3.3.2/tests/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -251,5 +249,4 @@ set(CMAKE_DEPEND_INFO_FILES
   "glfw-3.3.2/tests/CMakeFiles/title.dir/DependInfo.cmake"
   "glfw-3.3.2/tests/CMakeFiles/triangle-vulkan.dir/DependInfo.cmake"
   "glfw-3.3.2/tests/CMakeFiles/windows.dir/DependInfo.cmake"
-  "tests/CMakeFiles/unit_tests.dir/DependInfo.cmake"
   )

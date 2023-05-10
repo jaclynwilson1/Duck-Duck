@@ -52,7 +52,7 @@ add_executable(DuckDuck
         shaders/vshader.glsl
         tests/tests.cpp)
 
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
 #target_compile_features(tests PRIVATE cxx_std_17)
 #target_link_libraries(tests PRIVATE doctest::doctest)

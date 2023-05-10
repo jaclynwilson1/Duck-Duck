@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/unit_tests.dir/tests.cpp.o -o ../unit_tests  ../glfw-3.3.2/src/libglfw3.a ../libglad.a -ldoctest ../glfw-3.3.2/src/libglfw3.a -framework Cocoa -framework IOKit -framework CoreFoundation 

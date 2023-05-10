@@ -16,6 +16,23 @@ add_library(glad "${CMAKE_SOURCE_DIR}/glfw-3.3.2/deps/glad/gl.h"
 
 link_libraries(glad)
 
+option(ENABLE_DOCTESTS "Include tests in the library. Setting this to OFF will remove all doctest related code.
+                        Tests in tests/*.cpp will still be enabled." ON)
+
+                        # Include stuff. No change needed.
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+include(ConfigSafeGuards)
+include(Colors)
+include(CTest)
+include(Doctest)
+include(Documentation)
+include(LTO)
+include(Misc)
+include(Warnings)
+
+# Check for LTO support.
+find_lto(CXX)
+
 SET(MY_SHADER_PATH ${CMAKE_SOURCE_DIR}/shaders/)
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/shaders/shader.cpp.in ${CMAKE_SOURCE_DIR}/shaders/shader.cpp)	
 

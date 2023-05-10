@@ -1,0 +1,1 @@
+add_test(NAME tests COMMAND ./unit_tests)

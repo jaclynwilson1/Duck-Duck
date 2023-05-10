@@ -54,3 +54,7 @@ Future Release will include:
 - Start option
 - View stats
 - Duck returns back
+
+How to generate doctest.h with cmake?
+How to integrate doctest into cmake?
+How to make them an executable?

@@ -590,6 +590,19 @@ windows/fast:
 	$(MAKE) $(MAKESILENT) -f glfw-3.3.2/tests/CMakeFiles/windows.dir/build.make glfw-3.3.2/tests/CMakeFiles/windows.dir/build
 .PHONY : windows/fast
 
+#=============================================================================
+# Target rules for targets named unit_tests
+
+# Build rule for target.
+unit_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unit_tests
+.PHONY : unit_tests
+
+# fast build rule for target.
+unit_tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
+.PHONY : unit_tests/fast
+
 glfw-3.3.2/deps/glad_gl.o: glfw-3.3.2/deps/glad_gl.c.o
 .PHONY : glfw-3.3.2/deps/glad_gl.o
 
@@ -849,6 +862,7 @@ help:
 	@echo "... timeout"
 	@echo "... title"
 	@echo "... triangle-vulkan"
+	@echo "... unit_tests"
 	@echo "... wave"
 	@echo "... windows"
 	@echo "... glfw-3.3.2/deps/glad_gl.o"

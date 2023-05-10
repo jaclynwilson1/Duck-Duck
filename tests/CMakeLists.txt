@@ -14,7 +14,7 @@ set(TEST_RUNNER_PARAMS "")  # Any arguemnts to feed the test runner (change as n
 add_executable(${TEST_MAIN} ${TESTFILES})
 target_link_libraries(${TEST_MAIN} PRIVATE ${LIBRARY_NAME} doctest)
 set_target_properties(${TEST_MAIN} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
-target_set_warnings(${TEST_MAIN} ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Set warnings (if needed).
+#target_set_warnings(${TEST_MAIN} ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Set warnings (if needed).
 
 set_target_properties(${TEST_MAIN} PROPERTIES
     CXX_STANDARD 17
@@ -28,4 +28,4 @@ add_test(
     COMMAND ${TEST_MAIN} ${TEST_RUNNER_PARAMS})
 
 # Adds a 'coverage' target.
-include(CodeCoverage)
+#include(CodeCoverage)

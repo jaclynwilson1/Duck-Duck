@@ -66,8 +66,19 @@ add_executable(DuckDuck
         shaders/fshader_Map.glsl
         shaders/vshader_Map.glsl
         shaders/fshader.glsl
-        shaders/vshader.glsl
-        tests/tests.cpp)
+        shaders/vshader.glsl)
+
+
+message("Debug BUILD")
+option(ENABLE_WARNINGS_SETTINGS "Allow target_set_warnings to add flags and defines.
+                        Set this to OFF if you want to provide your own warning parameters." ON)
+option(ENABLE_LTO "Enable link time optomization" ON)
+option(ENABLE_DOCTESTS "Include tests in the library. Setting this to OFF will remove all doctest related code.
+                        Tests in tests/*.cpp will still be enabled." ON)
+#find_package(doctest)
+set(TESTFILES tests/main.cpp tests/tests.cpp)
+target_link_libraries(${LIBRARY_NAME} doctest)
+add_subdirectory(tests)
 
 #add_subdirectory(tests)
 

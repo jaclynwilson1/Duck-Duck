@@ -6,9 +6,9 @@ C_DEFINES = -D_GLFW_USE_CONFIG_H
 
 C_INCLUDES = -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/src -I/Users/jaclyn/Desktop/Duck-Duck/build/glfw-3.3.2/src
 
-C_FLAGSarm64 = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fPIC -Wall
+C_FLAGSarm64 = -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fPIC -Wall
 
-C_FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fPIC -Wall
+C_FLAGS = -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fPIC -Wall
 
 # Custom flags: glfw-3.3.2/src/CMakeFiles/glfw.dir/context.c.o_FLAGS = -Wdeclaration-after-statement
 

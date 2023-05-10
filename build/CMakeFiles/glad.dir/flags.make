@@ -6,7 +6,7 @@ C_DEFINES =
 
 C_INCLUDES = -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/source/common -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include
 
-C_FLAGSarm64 = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+C_FLAGSarm64 =  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
 
-C_FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+C_FLAGS =  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
 

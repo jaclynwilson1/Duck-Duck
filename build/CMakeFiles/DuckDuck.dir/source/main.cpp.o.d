@@ -1,6 +1,6 @@
 CMakeFiles/DuckDuck.dir/source/main.cpp.o: \
   /Users/jaclyn/Desktop/Duck-Duck/source/main.cpp \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/common.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/common.h \
   /Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps/glad/gl.h \
   /Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps/glad/khrplatform.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/stdint.h \
@@ -86,7 +86,7 @@ CMakeFiles/DuckDuck.dir/source/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_ssize_t.h \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/Angel.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/Angel.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/cmath \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/math.h \
@@ -233,12 +233,12 @@ CMakeFiles/DuckDuck.dir/source/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__bit_reference \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/vec.h \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/mat.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/vec.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/mat.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__split_buffer \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/Duck.h \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/Hunter.h \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/Bullet.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/Duck.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/Hunter.h \
+  /Users/jaclyn/Desktop/Duck-Duck/include/Bullet.h \
   /Users/jaclyn/Desktop/Duck-Duck/shaders/shader.h \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/Map.h
+  /Users/jaclyn/Desktop/Duck-Duck/include/Map.h

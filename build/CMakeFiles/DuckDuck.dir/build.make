@@ -139,19 +139,19 @@ CMakeFiles/DuckDuck.dir/source/Map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DuckDuck.dir/source/Map.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jaclyn/Desktop/Duck-Duck/source/Map.cpp -o CMakeFiles/DuckDuck.dir/source/Map.cpp.s
 
-CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o: CMakeFiles/DuckDuck.dir/flags.make
-CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o: /Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.cpp
-CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o: CMakeFiles/DuckDuck.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jaclyn/Desktop/Duck-Duck/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o -MF CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o.d -o CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.cpp
+CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o: CMakeFiles/DuckDuck.dir/flags.make
+CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o: /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp
+CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o: CMakeFiles/DuckDuck.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jaclyn/Desktop/Duck-Duck/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o -MF CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o.d -o CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp
 
-CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.cpp > CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.i
+CMakeFiles/DuckDuck.dir/include/lodepng.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DuckDuck.dir/include/lodepng.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp > CMakeFiles/DuckDuck.dir/include/lodepng.cpp.i
 
-CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.cpp -o CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.s
+CMakeFiles/DuckDuck.dir/include/lodepng.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DuckDuck.dir/include/lodepng.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp -o CMakeFiles/DuckDuck.dir/include/lodepng.cpp.s
 
 CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o: CMakeFiles/DuckDuck.dir/flags.make
 CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o: /Users/jaclyn/Desktop/Duck-Duck/shaders/shader.cpp
@@ -188,7 +188,7 @@ DuckDuck_OBJECTS = \
 "CMakeFiles/DuckDuck.dir/source/Hunter.cpp.o" \
 "CMakeFiles/DuckDuck.dir/source/Bullet.cpp.o" \
 "CMakeFiles/DuckDuck.dir/source/Map.cpp.o" \
-"CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o" \
+"CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o" \
 "CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o" \
 "CMakeFiles/DuckDuck.dir/tests/tests.cpp.o"
 
@@ -200,7 +200,7 @@ DuckDuck: CMakeFiles/DuckDuck.dir/source/Duck.cpp.o
 DuckDuck: CMakeFiles/DuckDuck.dir/source/Hunter.cpp.o
 DuckDuck: CMakeFiles/DuckDuck.dir/source/Bullet.cpp.o
 DuckDuck: CMakeFiles/DuckDuck.dir/source/Map.cpp.o
-DuckDuck: CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o
+DuckDuck: CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o
 DuckDuck: CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o
 DuckDuck: CMakeFiles/DuckDuck.dir/tests/tests.cpp.o
 DuckDuck: CMakeFiles/DuckDuck.dir/build.make

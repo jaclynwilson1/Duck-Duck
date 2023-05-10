@@ -1,6 +1,6 @@
-CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o: \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.cpp \
-  /Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.h \
+CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o: \
+  /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp \
+  /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/pthread.h \

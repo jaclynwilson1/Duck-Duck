@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/source/common -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include
+CXX_INCLUDES = -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include
 
 CXX_FLAGSarm64 = -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
 

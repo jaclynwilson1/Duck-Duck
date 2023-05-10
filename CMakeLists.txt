@@ -21,11 +21,11 @@ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/shaders/shader.cpp.in ${CMAKE_SOURCE_DIR}/sha
 
 
 include_directories(${CMAKE_SOURCE_DIR}/source
-					${CMAKE_SOURCE_DIR}/source/common
+					${CMAKE_SOURCE_DIR}/include
 					${CMAKE_SOURCE_DIR}/shaders)
 
 include_directories(${CMAKE_SOURCE_DIR}/source
-                    ${CMAKE_SOURCE_DIR}/source/common)          
+                    ${CMAKE_SOURCE_DIR}/source/include)          
 
 add_executable(DuckDuck
         source/main.cpp
@@ -33,16 +33,16 @@ add_executable(DuckDuck
         source/Hunter.cpp
         source/Bullet.cpp
         source/Map.cpp
-        source/common/Angel.h
-        source/common/common.h
-        source/common/Duck.h
-        source/common/Hunter.h
-        source/common/Bullet.h
-        source/common/Map.h
-        source/common/mat.h
-        source/common/vec.h
-        source/common/lodepng.cpp
-        source/common/lodepng.h
+        include/Angel.h
+        include/common.h
+        include/Duck.h
+        include/Hunter.h
+        include/Bullet.h
+        include/Map.h
+        include/mat.h
+        include/vec.h
+        include/lodepng.cpp
+        include/lodepng.h
         shaders/shader.cpp
         shaders/fshader_Duck.glsl
         shaders/vshader_Duck.glsl

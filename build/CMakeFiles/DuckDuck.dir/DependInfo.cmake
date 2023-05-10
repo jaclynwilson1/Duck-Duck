@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp" "CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/shaders/shader.cpp" "CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/source/Bullet.cpp" "CMakeFiles/DuckDuck.dir/source/Bullet.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/source/Bullet.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/source/Duck.cpp" "CMakeFiles/DuckDuck.dir/source/Duck.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/source/Duck.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/source/Hunter.cpp" "CMakeFiles/DuckDuck.dir/source/Hunter.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/source/Hunter.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/source/Map.cpp" "CMakeFiles/DuckDuck.dir/source/Map.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/source/Map.cpp.o.d"
-  "/Users/jaclyn/Desktop/Duck-Duck/source/common/lodepng.cpp" "CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/source/main.cpp" "CMakeFiles/DuckDuck.dir/source/main.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/source/main.cpp.o.d"
   "/Users/jaclyn/Desktop/Duck-Duck/tests/tests.cpp" "CMakeFiles/DuckDuck.dir/tests/tests.cpp.o" "gcc" "CMakeFiles/DuckDuck.dir/tests/tests.cpp.o.d"
   )

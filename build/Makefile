@@ -614,6 +614,30 @@ glfw-3.3.2/deps/glad_gl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.2/deps/glad_gl.c.s
 .PHONY : glfw-3.3.2/deps/glad_gl.c.s
 
+include/lodepng.o: include/lodepng.cpp.o
+.PHONY : include/lodepng.o
+
+# target to build an object file
+include/lodepng.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o
+.PHONY : include/lodepng.cpp.o
+
+include/lodepng.i: include/lodepng.cpp.i
+.PHONY : include/lodepng.i
+
+# target to preprocess a source file
+include/lodepng.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/include/lodepng.cpp.i
+.PHONY : include/lodepng.cpp.i
+
+include/lodepng.s: include/lodepng.cpp.s
+.PHONY : include/lodepng.s
+
+# target to generate assembly for a file
+include/lodepng.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/include/lodepng.cpp.s
+.PHONY : include/lodepng.cpp.s
+
 shaders/shader.o: shaders/shader.cpp.o
 .PHONY : shaders/shader.o
 
@@ -734,30 +758,6 @@ source/Map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/source/Map.cpp.s
 .PHONY : source/Map.cpp.s
 
-source/common/lodepng.o: source/common/lodepng.cpp.o
-.PHONY : source/common/lodepng.o
-
-# target to build an object file
-source/common/lodepng.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.o
-.PHONY : source/common/lodepng.cpp.o
-
-source/common/lodepng.i: source/common/lodepng.cpp.i
-.PHONY : source/common/lodepng.i
-
-# target to preprocess a source file
-source/common/lodepng.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.i
-.PHONY : source/common/lodepng.cpp.i
-
-source/common/lodepng.s: source/common/lodepng.cpp.s
-.PHONY : source/common/lodepng.s
-
-# target to generate assembly for a file
-source/common/lodepng.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DuckDuck.dir/build.make CMakeFiles/DuckDuck.dir/source/common/lodepng.cpp.s
-.PHONY : source/common/lodepng.cpp.s
-
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
 
@@ -854,6 +854,9 @@ help:
 	@echo "... glfw-3.3.2/deps/glad_gl.o"
 	@echo "... glfw-3.3.2/deps/glad_gl.i"
 	@echo "... glfw-3.3.2/deps/glad_gl.s"
+	@echo "... include/lodepng.o"
+	@echo "... include/lodepng.i"
+	@echo "... include/lodepng.s"
 	@echo "... shaders/shader.o"
 	@echo "... shaders/shader.i"
 	@echo "... shaders/shader.s"
@@ -869,9 +872,6 @@ help:
 	@echo "... source/Map.o"
 	@echo "... source/Map.i"
 	@echo "... source/Map.s"
-	@echo "... source/common/lodepng.o"
-	@echo "... source/common/lodepng.i"
-	@echo "... source/common/lodepng.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

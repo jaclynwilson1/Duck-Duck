@@ -54,6 +54,8 @@ Future Release will include:
 - Start option
 - View stats
 - Duck returns back
+- Hunters go away too quickly
+- Start game screen and end game screen
 
 How to generate doctest.h with cmake?
 How to integrate doctest into cmake?

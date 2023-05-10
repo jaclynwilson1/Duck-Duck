@@ -5,6 +5,9 @@
 
 using namespace Angel;
 
+/**
+ * Initializes the duck and multiple maps
+*/
 Duck duck;
 std::vector <Map> maps;
 Map map0(0);
@@ -12,13 +15,16 @@ Map map1(1);
 Map map2(2);
 int current_map;
 
+/**
+ * Initializes the hunters on each map
+*/
 std::vector<std::vector<vec3>> hunters_hitboxes;
 Hunter hunter0;
 Hunter hunter1;
 Hunter hunter2;
 Hunter hunter3;
 bool unplaced23=true;
-
+/*Alive hunters bool true when alive*/
 std::vector<bool*> hunters_alive_pointers;
 
 
@@ -29,7 +35,9 @@ double hunter1_bullet_timer;
 double hunter2_bullet_timer;
 double hunter3_bullet_timer;
 
-
+/**
+ * New bullet design
+*/
 void new_bullet(vec2 start_position, vec2 velocity){
   
   

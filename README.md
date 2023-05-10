@@ -63,3 +63,9 @@ How to integrate doctest into cmake?
 How to make them an executable?
 
 https://github.com/bsamseth/cpp-project/blob/master/src/example.cpp
+
+#### Plan
+1. Installation
+2. DRs
+3. Future Releases
+4. Unit Tests

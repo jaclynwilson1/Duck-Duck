@@ -1,0 +1,6 @@
+In order to install:
+
+DuckDuck executable
+Script to run the DuckDuck executable
+Cosmetic installation
+Easy download

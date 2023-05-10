@@ -56,6 +56,7 @@ Future Release will include:
 - Duck returns back
 - Hunters go away too quickly
 - Start game screen and end game screen
+- make into an installable game with an executable
 
 How to generate doctest.h with cmake?
 How to integrate doctest into cmake?

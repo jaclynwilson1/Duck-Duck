@@ -4,8 +4,12 @@
 Map::Map(int i){
     //Generate the map by using gen_platforms to place platforms
     //Need to decide where to handle collision of duck and platform
-    //Map 1
+    //Map 0 is the map for the starting screen with no hunters present
     if(i == 0){
+        platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));//Ground
+    }
+    //Map 1
+    if(i == 1){
         platforms.push_back(gen_platform(vec3(-1.5,-0.75,1),2.5,0.5,1));//ground
         platforms.push_back(gen_platform(vec3(-1.1,1,1),0.1,2,1));//left boundary
         platforms.push_back(gen_platform(vec3(-0.7,-0.6,1),0.1,0.5,1));//small wall by duck
@@ -23,7 +27,7 @@ Map::Map(int i){
         platforms.push_back(gen_platform(vec3(-0.55,0.55,1),0.25,0.05,1));//fourth step
         platforms.push_back(gen_platform(vec3(-0.80,0.70,1),0.25,0.05,1));//fifth step
 
-    }else if(i == 1){
+    }else if(i == 2){
         platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));//ground
         platforms.push_back(gen_platform(vec3(-1.1,0.75,1),1.10,0.075,1));//top plat
         platforms.push_back(gen_platform(vec3(0.95,1,1),0.1,1.5,1));//right wall
@@ -36,7 +40,7 @@ Map::Map(int i){
 
 
 
-    }else if(i == 2){
+    }else if(i == 3){
         platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));//Ground
 
         //F

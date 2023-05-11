@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/source/main.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/source/main.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/source/main.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/source/main.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/source/Duck.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/source/Duck.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/source/Duck.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/source/Duck.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/source/Hunter.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/source/Hunter.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/source/Hunter.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/source/Hunter.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/source/Bullet.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/source/Bullet.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/source/Bullet.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/source/Bullet.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/source/Map.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/source/Map.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/source/Map.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/source/Map.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/include/lodepng.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/include/lodepng.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -o CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/shaders/shader.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/shaders/shader.cpp",
+  "output": "CMakeFiles/DuckDuck.dir/shaders/shader.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build/tests",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -I/Users/jaclyn/Desktop/Duck-Duck/build/_deps/doctest-src -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wall -Weverything -Wpedantic -Wno-switch-enum -Wno-unknown-warning-option -Wno-padded -Wno-undef -Wno-reserved-id-macro -fcomment-block-commands=test,retval -Wno-c++98-compat -Wno-c++98-compat-pedantic -Werror -o CMakeFiles/unit_tests.dir/tests.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/tests/tests.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/tests/tests.cpp",
+  "output": "tests/CMakeFiles/unit_tests.dir/tests.cpp.o"
+},
+{
+  "directory": "/Users/jaclyn/Desktop/Duck-Duck/build/tests",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DENABLE_DOCTEST_IN_LIBRARY -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/deps -I/Users/jaclyn/Desktop/Duck-Duck/build -I/Users/jaclyn/Desktop/Duck-Duck/source -I/Users/jaclyn/Desktop/Duck-Duck/include -I/Users/jaclyn/Desktop/Duck-Duck/shaders -I/Users/jaclyn/Desktop/Duck-Duck/source/include -I/Users/jaclyn/Desktop/Duck-Duck/glfw-3.3.2/include -I/Users/jaclyn/Desktop/Duck-Duck/build/_deps/doctest-src -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wall -Weverything -Wpedantic -Wno-switch-enum -Wno-unknown-warning-option -Wno-padded -Wno-undef -Wno-reserved-id-macro -fcomment-block-commands=test,retval -Wno-c++98-compat -Wno-c++98-compat-pedantic -Werror -o CMakeFiles/unit_tests.dir/main.cpp.o -c /Users/jaclyn/Desktop/Duck-Duck/tests/main.cpp",
+  "file": "/Users/jaclyn/Desktop/Duck-Duck/tests/main.cpp",
+  "output": "tests/CMakeFiles/unit_tests.dir/main.cpp.o"
+}
+]

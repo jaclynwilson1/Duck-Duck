@@ -146,7 +146,7 @@ void animate(){
     glfwSetTime(0.0);
     current_map = duck.get_current_map();
     //Place hunters based on current map
-    if(current_map == 0){
+    if(current_map == 1){
       if(!hunter0.placed_check(0)){
         hunter0.set_position(vec2(0.5,-0.75),0);
       }
@@ -159,7 +159,7 @@ void animate(){
       if(!hunter3.placed_check(0)){
         hunter3.set_position(vec2(-1.3,-0.39),0);
       }
-    }else if(current_map == 1){
+    }else if(current_map == 2){
       if(unplaced23){
         hunter2.set_position(vec2(0.6,0.5),0);
         hunter3.set_position(vec2(0.8,-0.39),0);

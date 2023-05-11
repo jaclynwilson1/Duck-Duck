@@ -7,6 +7,21 @@ Map::Map(int i){
     //Map 0 is the map for the starting screen with no hunters present
     if(i == 0){
         platforms.push_back(gen_platform(vec3(-1,-0.75,1),2,0.5,1));//Ground
+
+        //G
+        platforms.push_back(gen_platform(vec3(-0.65,0.8,1),0.07,0.6,1));
+        platforms.push_back(gen_platform(vec3(-0.65,0.8,1),0.6,0.075,1));//floating plat
+        platforms.push_back(gen_platform(vec3(-0.65,0.2,1),0.6,0.075,1));//floating plat
+        platforms.push_back(gen_platform(vec3(-0.1,0.4,1),0.07,0.275,1));
+        platforms.push_back(gen_platform(vec3(-0.3,0.4,1),0.2,0.075,1));//floating plat
+
+        //O
+        platforms.push_back(gen_platform(vec3(0.2,0.8,1),0.07,0.6,1));
+        platforms.push_back(gen_platform(vec3(0.2,0.8,1),0.6,0.075,1));
+        platforms.push_back(gen_platform(vec3(0.2,0.2,1),0.6,0.075,1));
+        platforms.push_back(gen_platform(vec3(0.73,0.8,1),0.07,0.6,1));
+        //platforms.push_back(gen_platform(vec3(-0.65,0.4,1),0.4,0.075,1));//floating plat
+
     }
     //Map 1
     if(i == 1){

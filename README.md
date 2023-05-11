@@ -49,6 +49,8 @@ make
 ## About
 This project uses OpenGL.
 
+Doctest for unit tests is implemented
+
 ### Future Release
 Future Release will include:
 - Start option
@@ -68,4 +70,3 @@ https://github.com/bsamseth/cpp-project/blob/master/src/example.cpp
 1. Installation
 2. DRs
 3. Future Releases
-4. Unit Tests
